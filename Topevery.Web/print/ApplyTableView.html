@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>租赁申请表打印</title>
+    <link href="Css/print-table.css" rel="stylesheet" type="text/css"/>
+    <script src="../Libs/jquery-easyui-1.4.5/jquery.min.js"></script>
+    <script src="../Js/base.js"></script>
+    <meta charset="utf-8"/>
+    <style>
+        label {
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+        function windowPrint() {
+            var hkey_root, hkey_path, hkey_key;
+            hkey_root = "HKEY_CURRENT_USER";
+            hkey_path = "\\Software\\Microsoft\\Internet Explorer\\PageSetup\\";
+            try {
+                var RegWsh = new ActiveXObject("WScript.Shell");
+                hkey_key = "header";
+                RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+                hkey_key = "footer";
+                RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+            } catch (e) { }
+            var pHtml = window.document.body.innerHTML;
+            window.document.body.innerHTML = document.getElementById("printDiv").innerHTML;
+            window.print();
+            window.document.body.innerHTML = pHtml;
+        }
+
+        function loadData() {
+            var src = window.location.href;
+            var id = src.split('?id=');
+            $.ajax({
+                type: 'POST',
+                url:  "/api/services/app/HouseRentApplyR/GetHousingAndTenantInfoAsync",
+               //url: '/Topevery.Web' + "/api/services/app/HouseRentApplyR/GetHousingAndTenantInfoAsync",
+                data: JSON.stringify({ id: id[1] }),
+                cache: false,
+                contentType: "application/json",
+                Type: "JSON",
+                success: function(row) {
+                    if (row.success) {
+                        var data = row.result;
+                        $("#LesseeId").val(data.id);
+                        $("#Name").html(data.name);
+                        $("#Sex").html(data.sexName);
+                        $("#CertNo").html(data.certNo);
+                        $("#ContactAddress").html(data.contactAddress);
+                        $("#ContactNumber").html(data.contactNumber);
+                        $("#WorkUnits").html(data.workUnits);
+                        $("#familyMembersCount").html(data.familyMembersCount);
+                        $("#DateBirth").html(topevery.dataTimeFormat(data.dateBirth));
+                        $("#HouseNo").html(data.houseNo);
+                        $("#RentRange").html(data.rentRange);
+                        $("#BuildArea").html(data.buildArea);
+                        $("#BuildStructureName").html(data.buildStructureName);
+                        $("#UsePropertyId").html(data.usePropertyName);
+                        $("#BuildStructureId").html(data.buildStructureId);
+                        $("#HouseDoorplate").html(data.houseDoorplate);
+                        $("#MetRentArea").html(data.metRentArea);
+                        $("#PayType").html(data.payTypeName);
+                        $("#BankCardNo").html(data.bankCardNo);
+                        $("#MonthMoney").html(data.monthMoney);
+                    }
+                }
+            });
+        }
+
+        $(function() {
+            loadData();
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div class="printHead"><input id="btnPrint" type="reset" class="btn" style="height: 30px; margin-top: 10px;" value="打印租赁住宅房屋申请审批表" onclick="windowPrint();"/>
+    </div>
+    <div id="printDiv">
+        <table class="printtable">
+            <tr><th colspan="8">租赁住宅房屋申请审批表</th></tr>
+            <tr>
+                <td rowspan="4" class="lefttd">申<br/>请<br/>人<br/>情<br/>况</td>
+                <td>申请人姓名</td>
+                <td><label id="Name" name="Name"></label></td>
+                <td>性别</td>
+                <td><label id="Sex" name="Sex"></label></td>
+                <td>出生日期</td>
+                <td colspan="2"><label id="DateBirth" name="DateBirth"></label></td>
+            </tr>
+            <tr>
+                <td>身份证号码</td>
+                <td colspan="6"><label id="CertNo" name="CertNo"></label></td>
+            </tr>
+            <tr>
+                <td>户籍所在地</td>
+                <td colspan="2"><label id="ContactAddress" name="ContactAddress"></label></td>
+                <td colspan="2">联系电话</td>
+                <td colspan="2"><label id="ContactNumber" name="ContactNumber"></label></td>
+            </tr>
+            <tr>
+                <td>工作单位</td>
+                <td colspan="4"><label id="WorkUnits" name="WorkUnits"></label></td>
+                <td>常住人数</td>
+                <td><label id="familyMembersCount" name="familyMembersCount"></label></td>
+            </tr>
+            <tr>
+                <td rowspan="4" class="lefttd">租<br/>赁<br/>房<br/>屋<br/>情<br/>况</td>
+                <td>房屋坐落</td>
+                <td colspan="2"><label id="HouseDoorplate" name="HouseDoorplate"></label></td>
+                <td colspan="2">租用范围</td>
+                <td colspan="2"><label id="RentRange" name="RentRange"></label></td>
+            </tr>
+            <tr>
+                <td>建筑面积</td>
+                <td><label id="BuildArea" name="BuildArea"></label></td>
+                <td>计租面积</td>
+                <td colspan="2"><label id="MetRentArea" name="MetRentArea"></label></td>
+                <td>建筑结构</td>
+                <td><label id="BuildStructureName" name="BuildStructureName"></label></td>
+            </tr>
+            <tr>
+                <td>月租金</td>
+                <td colspan="4"><label id="MonthMoney" name="MonthMoney"></label></td>
+                <td>用途</td><td><label id="UsePropertyId" name="UsePropertyId"></label></td>
+            </tr>
+            <tr>
+                <td>交租方式</td>
+                <td><label id="PayType" name="PayType"></label></td>
+                <td>银行账号</td>
+                <td colspan="4"><label id="BankCardNo" name="BankCardNo"></label></td>
+            </tr>
+
+            <tr>
+                <td class="lefttd">申<br/>请<br/>理<br/>由</td>
+                <td colspan="7"><span class="leftspan">申请人签名：</span><span class="rightspan">年月日</span></td>
+            </tr>
+            <tr>
+                <td class="lefttd">初<br/>审<br/>意<br/>见</td>
+                <td colspan="7"><span class="leftspan">房管员签名：</span><span class="rightspan">年月日</span></td>
+            </tr>
+            <tr>
+                <td class="lefttd">复<br/>审<br/>意<br/>见</td>
+                <td colspan="7"><span class="leftspan">工作站负责人签名：</span><span class="rightspan">年月日</span></td>
+            </tr>
+            <tr>
+                <td class="lefttd">审<br/>核<br/>意<br/>见</td>
+                <td colspan="7"><span class="leftspan">租赁部部长签名：</span><span class="rightspan">年月日</span></td>
+            </tr>
+            <tr>
+                <td class="lefttd">审<br/>批<br/>意<br/>见</td>
+                <td colspan="7"><span class="leftspan">分管主任签名：</span><span class="rightspan">年月日</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

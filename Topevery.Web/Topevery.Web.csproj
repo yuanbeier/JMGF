@@ -1,0 +1,1040 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{897F6FD8-6F90-48E4-95A5-B4429B896205}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Topevery.Web</RootNamespace>
+    <AssemblyName>Topevery.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abp, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.0.10.3.0\lib\net452\Abp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.AutoMapper, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.AutoMapper.0.10.3.0\lib\net452\Abp.AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.EntityFramework.Common">
+      <HintPath>..\packages\Abp.EntityFramework.Common.0.10.3.0\lib\net452\Abp.EntityFramework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Abp.Owin, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Owin.0.10.3.0\lib\net452\Abp.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Web, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.0.10.3.0\lib\net452\Abp.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Web.Api, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Api.0.10.3.0\lib\net452\Abp.Web.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Web.Common, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Common.0.10.3.0\lib\net452\Abp.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Web.Mvc, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Mvc.0.10.3.0\lib\net452\Abp.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging">
+      <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core-log4net.3.3.3\lib\net45\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=1.4.11.0, Culture=neutral, PublicKeyToken=146423a1b8d60775, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DynamicFilters.1.4.11\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.2400\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Topevery.FMP.ObjectModel, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Topevery.FMP.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Topevery.Framework.CommonModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f19d80cec1ceaeb9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Topevery.Framework.CommonModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Topevery.Framework.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f19d80cec1ceaeb9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Topevery.Framework.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Abp\Framework\scripts\abp.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.blockUI.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.jquery.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.jtable.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.moment.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.signalr.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.spin.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.sweet-alert.js" />
+    <Content Include="Abp\Framework\scripts\libs\abp.toastr.js" />
+    <Content Include="Abp\Framework\scripts\libs\angularjs\abp.ng.js" />
+    <Content Include="Abp\Framework\scripts\libs\requirejs\plugins\service.js" />
+    <Content Include="Abp\Framework\scripts\utils\ie10fix.js" />
+    <Content Include="Abp\Framework\styles\abp.css" />
+    <Content Include="Abp\Framework\styles\abp.min.css" />
+    <Content Include="Abp\Framework\styles\abp.mixings.css" />
+    <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
+    <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Css\Account\login.css" />
+    <Content Include="Css\printSheet.css" />
+    <Content Include="Css\UploadFile.css" />
+    <Content Include="Css\Home\index.css" />
+    <Content Include="Css\house-manage.css" />
+    <Content Include="Css\icon.css" />
+    <Content Include="Css\images\loading.gif" />
+    <Content Include="Css\images\pagination_icons.png" />
+    <Content Include="Css\pending-list.css" />
+    <Content Include="Css\reduce-rent.css" />
+    <Content Include="Css\reset-ty.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\app.png" />
+    <Content Include="Images\app_release.png" />
+    <Content Include="Images\cancel.png" />
+    <Content Include="Images\Excel.png" />
+    <Content Include="Images\Icons\bulb-sign.png" />
+    <Content Include="Images\Icons\alarm.png" />
+    <Content Include="Images\Icons\arrow-down.png" />
+    <Content Include="Images\Icons\back.png" />
+    <Content Include="Images\Icons\blank.gif" />
+    <Content Include="Images\Icons\cancel.png" />
+    <Content Include="Images\Icons\checked.png" />
+    <Content Include="Images\Icons\clear.png" />
+    <Content Include="Images\Icons\code.png" />
+    <Content Include="Images\Icons\cut.png" />
+    <Content Include="Images\Icons\edit_add.png" />
+    <Content Include="Images\Icons\edit_remove.png" />
+    <Content Include="Images\Icons\filesave.png" />
+    <Content Include="Images\Icons\filter.png" />
+    <Content Include="Images\Icons\help.png" />
+    <Content Include="Images\Icons\home.png" />
+    <Content Include="Images\Icons\icons.png" />
+    <Content Include="Images\Icons\icons2.png" />
+    <Content Include="Images\Icons\identity.png" />
+    <Content Include="Images\Icons\large_chart.png" />
+    <Content Include="Images\Icons\large_clipart.png" />
+    <Content Include="Images\Icons\large_picture.png" />
+    <Content Include="Images\Icons\large_shapes.png" />
+    <Content Include="Images\Icons\large_smartart.png" />
+    <Content Include="Images\Icons\lock.png" />
+    <Content Include="Images\Icons\man.png" />
+    <Content Include="Images\Icons\mini_add.png" />
+    <Content Include="Images\Icons\mini_edit.png" />
+    <Content Include="Images\Icons\mini_refresh.png" />
+    <Content Include="Images\Icons\more-icon.png" />
+    <Content Include="Images\Icons\more.png" />
+    <Content Include="Images\Icons\nav-icon.png" />
+    <Content Include="Images\Icons\no.png" />
+    <Content Include="Images\Icons\ok.png" />
+    <Content Include="Images\Icons\orange-bulb.png" />
+    <Content Include="Images\Icons\orange-bulb2.png" />
+    <Content Include="Images\Icons\orange-bulb3.png" />
+    <Content Include="Images\Icons\orange-bulb4.png" />
+    <Content Include="Images\Icons\pencil.png" />
+    <Content Include="Images\Icons\print.png" />
+    <Content Include="Images\Icons\redo.png" />
+    <Content Include="Images\Icons\reload.png" />
+    <Content Include="Images\Icons\search.png" />
+    <Content Include="Images\Icons\sum.png" />
+    <Content Include="Images\Icons\tip.png" />
+    <Content Include="Images\Icons\undo.png" />
+    <Content Include="Images\accordion_arrows.png" />
+    <Content Include="Images\blank.gif" />
+    <Content Include="Images\calendar_arrows.png" />
+    <Content Include="Images\code.png" />
+    <Content Include="Images\combo_arrow.png" />
+    <Content Include="Images\datagrid_icons.png" />
+    <Content Include="Images\datebox_arrow.png" />
+    <Content Include="Images\input-icon.png" />
+    <Content Include="Images\layout_arrows.png" />
+    <Content Include="Images\linkbutton_bg.png" />
+    <Content Include="Images\login-bg.png" />
+    <Content Include="Images\login-btn.png" />
+    <Content Include="Images\login-center-bg.png" />
+    <Content Include="Images\login-logo.png" />
+    <Content Include="Images\menu_arrows.png" />
+    <Content Include="Images\messager_icons.png" />
+    <Content Include="Images\panel_tools.png" />
+    <Content Include="Images\pdf.png" />
+    <Content Include="Images\PPT.png" />
+    <Content Include="Images\PSD.png" />
+    <Content Include="Images\searchbox_button.png" />
+    <Content Include="Images\slash.png" />
+    <Content Include="Images\slider_handle.png" />
+    <Content Include="Images\spinner_arrows.png" />
+    <Content Include="Images\system-logo.png" />
+    <Content Include="Images\tabs_icons.png" />
+    <Content Include="Images\tishi.png" />
+    <Content Include="Images\TONGYONG.png" />
+    <Content Include="Images\tree_icons.png" />
+    <Content Include="Images\validatebox_warning.png" />
+    <Content Include="Images\WEB.png" />
+    <Content Include="Images\Word.png" />
+    <Content Include="Images\xlsx.jpg" />
+    <Content Include="Images\zip.png" />
+    <Content Include="Images\zwtp.gif" />
+    <Content Include="Js\Account\login.js" />
+    <Content Include="Js\HouseInfo\BuildingImages.js" />
+    <Content Include="Js\HouseInfo\HouseUnitImage.js" />
+    <Content Include="Js\RentCollect\BadDebt.js" />
+    <Content Include="Js\BankWithholding\DiskDataGenerated.js" />
+    <Content Include="Js\BankWithholding\HistoryDiskDataGenerated.js" />
+    <Content Include="Js\BankWithholding\HistoryPersonShoulPayToBank.js" />
+    <Content Include="Js\BankWithholding\PersonShoulPayToBank.js" />
+    <Content Include="Js\BankWithholding\PersonShoulPayToBankImport.js" />
+    <Content Include="Js\BigHouseRepair\DaZhongXiuEngineeringApply.js" />
+    <Content Include="Js\BigHouseRepair\DaZhongXiuEngineeringApplyToView.js" />
+    <Content Include="Js\BigHouseRepair\DaZhongXiuEngineeringIndex.js" />
+    <Content Include="Js\BigHouseRepair\DaZhongXiuEngineeringToView.js" />
+    <Content Include="Js\BigHouseRepair\DaZhongXiuEngineeringTransaction.js" />
+    <Content Include="Js\BigHouseRepair\HouseholdSelect.js" />
+    <Content Include="Js\Common\ModifyRecord.js" />
+    <Content Include="Js\ContractMent\ContractToViewApp.js" />
+    <Content Include="Js\ContractMent\ExportRentInfoForLottery.js" />
+    <Content Include="Js\ContractMent\ExportRentInfoForLotteryOpen.js" />
+    <Content Include="Js\ContractMent\MarginManagementList.js" />
+    <Content Include="Js\ContractMent\RentReductionApplicationToView.js" />
+    <Content Include="Js\Contract\EditRefundHouse.js" />
+    <Content Include="Js\Contract\AddRefundHouse.js" />
+    <Content Include="Js\base.js" />
+    <Content Include="Js\common.js" />
+    <Content Include="Js\ContractMent\ContractChoice.js" />
+    <Content Include="Js\ContractMent\ContractModif.js" />
+    <Content Include="Js\ContractMent\ContractSigning.js" />
+    <Content Include="Js\ContractMent\ContractToView.js" />
+    <Content Include="Js\ContractMent\LeaseContractProcessing.js" />
+    <Content Include="Js\ContractMent\ModificationDateView.js" />
+    <Content Include="Js\ContractMent\RentReduction.js" />
+    <Content Include="Js\ContractMent\RentReductionApplication.js" />
+    <Content Include="Js\ContractMent\RentReductionToView.js" />
+    <Content Include="Js\ContractMent\RentReductionTransaction.js" />
+    <Content Include="Js\Contract\RefundHouseInfoDone.js" />
+    <Content Include="Js\Contract\RefundHouseInfo.js" />
+    <Content Include="Js\Contract\RefundRentApplyInfoDone.js" />
+    <Content Include="Js\Home\EditPassWord.js" />
+    <Content Include="Js\Home\EditUser.js" />
+    <Content Include="Js\HouseInfo\BuildingSelection.js" />
+    <Content Include="Js\HouseInfo\HouseBanView.js" />
+    <Content Include="Js\HouseInfo\HouseBanDrawing.js" />
+    <Content Include="Js\HouseInfo\HouseFacilityIndex.js" />
+    <Content Include="Js\DepositRefund\SecurityApplyToView.js" />
+    <Content Include="Js\HouseInfo\HouseUnitDrawing.js" />
+    <Content Include="Js\HouseInfo\LeaseAndContract.js" />
+    <Content Include="Js\Contract\ContractIndex.js" />
+    <Content Include="Js\Contract\ContractInfoByRefundHouse.js" />
+    <Content Include="Js\Contract\RefundHouseList.js" />
+    <Content Include="Js\Contract\RefundRentApplyInfo.js" />
+    <Content Include="Js\Contract\RefundRentApply.js" />
+    <Content Include="Js\DepositRefund\DepositRefundContractChoice.js" />
+    <Content Include="Js\DepositRefund\SecurityToView.js" />
+    <Content Include="Js\DepositRefund\SecurityApply.js" />
+    <Content Include="Js\DepositRefund\SecurityManagement.js" />
+    <Content Include="Js\DepositRefund\SecurityTransaction.js" />
+    <Content Include="Js\frameHelper.js" />
+    <Content Include="Js\Home\index.js" />
+    <Content Include="Js\house-manage.js" />
+    <Content Include="Js\HouseInfo\HouseUnitAdd.js" />
+    <Content Include="Js\HouseInfo\TenantInformationSecurity.js" />
+    <Content Include="Js\HouseRepair\BudgetSettlement.js" />
+    <Content Include="Js\House\ListHouseban.js" />
+    <Content Include="Js\HouseInfo\SelectHouseBan.js" />
+    <Content Include="Js\HouseInfo\HouseholdSelect.js" />
+    <Content Include="Js\HouseInfo\HouseKeeper.js" />
+    <Content Include="Js\HouseInfo\HouseKeeperAllot.js" />
+    <Content Include="Js\HouseMenu\HouseBanForLotteryList.js" />
+    <Content Include="Js\HouseRentApply\DonetList.js" />
+    <Content Include="Js\HouseRentApply\LeaseReview.js" />
+    <Content Include="Js\HouseRentApply\LeasingModif.js" />
+    <Content Include="Js\HouseRentApply\LeasingView.js" />
+    <Content Include="Js\HouseRentApply\LeaseReviewDone.js" />
+    <Content Include="Js\HouseRentApply\RefundRentApply.js" />
+    <Content Include="Js\HouseRentApply\TodoLists.js" />
+    <Content Include="Js\HouseInfo\HouseNull.js" />
+    <Content Include="Js\HouseInfo\TenantInformation.js" />
+    <Content Include="Js\HouseRentApply\Index.js" />
+    <Content Include="Js\HouseRentApply\LeasingApplication.js" />
+    <Content Include="Js\HouseInfo\HouseBanAdd.js" />
+    <Content Include="Js\HouseInfo\HouseBanEdit.js" />
+    <Content Include="Js\HouseInfo\HouseBanIndex.js" />
+    <Content Include="Js\HouseInfo\ViewList.js" />
+    <Content Include="Js\HouseInfo\HouseLossAdd.js" />
+    <Content Include="Js\HouseInfo\HouseLossIndex.js" />
+    <Content Include="Js\HouseInfo\HouseUnitDataGrid.js" />
+    <Content Include="Js\HouseInfo\HouseUnitIndex.js" />
+    <Content Include="Js\HouseRepair\EngineeringProject.js" />
+    <Content Include="Js\HouseRepair\EngineerUnitAdd.js" />
+    <Content Include="Js\HouseRepair\EngineerUnitEdit.js" />
+    <Content Include="Js\HouseRepair\EngineerUnitMentIndex.js" />
+    <Content Include="Js\HouseRepair\HouseRepairAdd.js" />
+    <Content Include="Js\HouseRepair\HouseRepairEdit.js" />
+    <Content Include="Js\HouseRepair\HouserRepairMentIndex.js" />
+    <Content Include="Js\HouseRepair\MinorRepairEngineeringApplyToView.js" />
+    <Content Include="Js\HouseRepair\MinorRepairEngineeringApply.js" />
+    <Content Include="Js\HouseRepair\MinorRepairEngineering.js" />
+    <Content Include="Js\HouseRepair\MinorRepairEngineeringToView.js" />
+    <Content Include="Js\HouseRepair\MinorRepairEngineeringTransaction.js" />
+    <Content Include="Js\HouseRepair\RepairOptions.js" />
+    <Content Include="Js\HouseRepair\StatementList.js" />
+    <Content Include="Js\HouseRepair\TaskChangeList.js" />
+    <Content Include="Js\House\ListHousehold.js" />
+    <Content Include="Js\ImgToView\imgViewer.js" />
+    <Content Include="Js\ImgToView\jq.js" />
+    <Content Include="Js\IntegrityMent\LesseeHonestyAdd.js" />
+    <Content Include="Js\IntegrityMent\LesseeHonestyMantIndex.js" />
+    <Content Include="Js\IntegrityMent\LesseeHonestySearch.js" />
+    <Content Include="Js\IntegrityMent\UnitHonestyAdd.js" />
+    <Content Include="Js\IntegrityMent\UnitHonestyMantIndex.js" />
+    <Content Include="Js\IntegrityMent\EngineerUnitSelect.js" />
+    <Content Include="Js\IntegrityMent\UnitHonestySearch.js" />
+    <Content Include="Js\LesseeInfo\Add.js" />
+    <Content Include="Js\LesseeInfo\Edit.js" />
+    <Content Include="Js\LesseeInfo\house-manage.js" />
+    <Content Include="Js\LesseeInfo\HouseRentApplyAdd.js" />
+    <Content Include="Js\LesseeInfo\Index.js" />
+    <Content Include="Js\LesseeInfo\LesseeIndex.js" />
+    <Content Include="Js\LesseeInfo\TenantsSelect.js" />
+    <Content Include="Js\LesseeInfo\ToView.js" />
+    <Content Include="Js\LesseeInfo\ToViewApp.js" />
+    <Content Include="Js\LodopFuncs.js" />
+    <Content Include="Js\MapHelper.js" />
+    <Content Include="Js\message.js" />
+    <Content Include="Js\PermanentStaff\Add.js" />
+    <Content Include="Js\PermanentStaff\Edit.js" />
+    <Content Include="Js\PermanentStaff\Index.js" />
+    <Content Include="Js\Property\ExamineAdd.js" />
+    <Content Include="Js\Property\FacilityAdd.js" />
+    <Content Include="Js\Property\PropertyAdd.js" />
+    <Content Include="Js\Property\ExamineIndex.js" />
+    <Content Include="Js\Property\PropertyFacilitys.js" />
+    <Content Include="Js\Property\PropertyFacility.js" />
+    <Content Include="Js\Property\PropertyIndex.js" />
+    <Content Include="Js\RentCollect\ContractInfoByRentCollect.js" />
+    <Content Include="Js\RentCollect\ContractInfo.js" />
+    <Content Include="Js\RentCollect\RentCollect.js" />
+    <Content Include="Js\RentCollect\RentCollectIndex.js" />
+    <Content Include="Js\RentCollect\RentCollectNew.js" />
+    <Content Include="Js\RentCollect\RentCollectQuery.js" />
+    <Content Include="Js\RentCollect\RentOweQuery.js" />
+    <Content Include="Js\RentCollect\UpdateInvoiceNumber.js" />
+    <Content Include="Js\Report\CashRentMonthReport.js" />
+    <Content Include="Js\Report\CurrencyExchangeRp.js" />
+    <Content Include="Js\Report\HouseRentReport.js" />
+    <Content Include="Js\Report\RentCollectIndex.js" />
+    <Content Include="Js\Report\RentForAreaRp.js" />
+    <Content Include="Js\Report\RentForHouseManageRp.js" />
+    <Content Include="Js\Report\StatisticalRentReport.js" />
+    <Content Include="Js\Report\TenantIncomeReport.js" />
+    <Content Include="Js\SafetyManagement\BuildingDamagedConditionAdd.js" />
+    <Content Include="Js\SafetyManagement\BuildingDisasterReliefAdd.js" />
+    <Content Include="Js\SafetyManagement\BuildingDisasterReliefManagement.js" />
+    <Content Include="Js\SafetyManagement\BuildingDamagedConditionManagement.js" />
+    <Content Include="Js\SafetyManagement\DailySafetyInspectionAdd.js" />
+    <Content Include="Js\SafetyManagement\DailySafetyInspectionIfram.js" />
+    <Content Include="Js\SafetyManagement\DailySafetyInspectionToView.js" />
+    <Content Include="Js\SafetyManagement\DangerousHouseAdd.js" />
+    <Content Include="Js\SafetyManagement\DangerousHouseManagement.js" />
+    <Content Include="Js\SafetyManagement\DailySafetyInspectionManagement.js" />
+    <Content Include="Js\SafetyManagement\EmergencyRescueSupplies.js" />
+    <Content Include="Js\SafetyManagement\EmergencyRescueSuppliesAdd.js" />
+    <Content Include="Js\Scheduling\HousingPatrols.js" />
+    <Content Include="Js\SafetyManagement\SpecialSecurityCheckAdd.js" />
+    <Content Include="Js\SafetyManagement\SpecialSecurityCheckManagement.js" />
+    <Content Include="Js\SafetyManagement\SpecialSecurityCheckToView.js" />
+    <Content Include="Js\Scheduling\ClockIn.js" />
+    <Content Include="Js\Scheduling\HousingPatrolsView.js" />
+    <Content Include="Js\Scheduling\InspectTheLog.js" />
+    <Content Include="Js\Scheduling\InspectTheLogView.js" />
+    <Content Include="Js\Scheduling\PatrolOnlyPoint.js" />
+    <Content Include="Js\Scheduling\PatrolOnlyPointView.js" />
+    <Content Include="Js\Scheduling\SchedulingMenu.js" />
+    <Content Include="Js\Scheduling\SchedulingView.js" />
+    <Content Include="Js\Scheduling\ShiftMaintenance.js" />
+    <Content Include="Js\Scheduling\ShiftMaintenanceView.js" />
+    <Content Include="Js\SystManage\ClearCache.js" />
+    <Content Include="Js\SystManage\ExtraIndex.js" />
+    <Content Include="Js\SystManage\LogManagement.js" />
+    <Content Include="Js\SystManage\OperatorLogs.js" />
+    <Content Include="Js\template.js" />
+    <Content Include="Js\Test\Add.js" />
+    <Content Include="Js\Test\Index.js" />
+    <Content Include="Js\uploader.js" />
+    <Content Include="Libs\base.js" />
+    <Content Include="Libs\bootstrap\css\bootstrap-rtl.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap-rtl.min.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Libs\bootstrap\js\bootstrap.js" />
+    <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Libs\bootstrap\js\npm.js" />
+    <Content Include="Libs\jquery-easyui-1.4.5\datagrid-detailview.js" />
+    <Content Include="Libs\jquery-easyui-rtl\content.html" />
+    <Content Include="Libs\jquery-easyui-rtl\easyui-rtl.css" />
+    <Content Include="Libs\jquery-easyui-rtl\easyui-rtl.js" />
+    <Content Include="Libs\jquery-easyui-rtl\rtl.html" />
+    <Content Include="Libs\jquery.cookie\jquery.cookie.js" />
+    <Content Include="Libs\jquery\jquery.form.js" />
+    <Content Include="Libs\jquery\jquery.validate.js" />
+    <Content Include="Libs\My97DatePicker\calendar.js" />
+    <Content Include="Libs\My97DatePicker\Jquery.my97.js" />
+    <Content Include="Libs\My97DatePicker\lang\en.js" />
+    <Content Include="Libs\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Libs\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Libs\My97DatePicker\skin\datePicker.jpg" />
+    <Content Include="Libs\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Libs\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Libs\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Libs\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Libs\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Libs\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Libs\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Libs\My97DatePicker\WdatePicker.js" />
+    <Content Include="Libs\My97DatePicker\开发包\lang\en.js" />
+    <Content Include="Libs\My97DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Libs\My97DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Libs\My97DatePicker\开发包\readme.txt" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Libs\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Libs\webuploader-0.1.5\Uploader.swf" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.css" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.custom.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.custom.min.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.fis.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.flashonly.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.flashonly.min.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.html5only.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.html5only.min.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.min.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.noimage.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.noimage.min.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.nolog.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.nolog.min.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.withoutimage.js" />
+    <Content Include="Libs\webuploader-0.1.5\webuploader.withoutimage.min.js" />
+    <Content Include="Localization\Topevery\Topevery-zh-CN.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="print\ApplyTableView.html" />
+    <Content Include="print\Apply\cancelContractSheet.html" />
+    <Content Include="print\Apply\checkOutSheet.html" />
+    <Content Include="print\Apply\CLodop_Setup_for_Win32NT_2.062.exe" />
+    <Content Include="print\Apply\install_lodop32.exe" />
+    <Content Include="print\Apply\install_lodop64.exe" />
+    <Content Include="SSO\SSOSites.xml" />
+    <Content Include="Js\Contract\ModifyBankCardNmber.js" />
+    <Content Include="Views\Contract\RefundHouseInfoDone.cshtml" />
+    <Content Include="print\Apply\css\printSheet.css" />
+    <Content Include="print\Apply\depositBackSheet.html" />
+    <Content Include="print\Apply\js\LodopFuncs.js" />
+    <Content Include="print\Apply\leaseSheet.html" />
+    <Content Include="print\Apply\projectApprovalSheet.html" />
+    <Content Include="print\Apply\rentBackSheet.html" />
+    <Content Include="print\Apply\rentReliefSheet.html" />
+    <Content Include="print\Css1\word2html.css" />
+    <Content Include="print\Css\print-table.css" />
+    <Content Include="print\住宅房屋租赁合同2015版.html" />
+    <Content Include="print\非住宅房屋租赁合同2015版.html" />
+    <Content Include="ExcelTemplate\住保科_新增房屋分户信息导入模板.xls" />
+    <Content Include="ExcelTemplate\结算单导入模版.xls" />
+    <Content Include="ExcelTemplate\工程预结算单价管理导入模版.xls" />
+    <Content Include="Libs\jquery-easyui-rtl\datagrid_data1.json" />
+    <Content Include="Libs\jquery-easyui-rtl\tree_data1.json" />
+    <None Include="Libs\jquery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Libs\jquery-blockui\jquery.blockui.min.js" />
+    <Content Include="Libs\jquery-easyui-1.4.5\easyui-lang-zh_CN.js" />
+    <Content Include="Libs\jquery-easyui-1.4.5\extEasyUI.js" />
+    <Content Include="Libs\jquery-easyui-1.4.5\jquery.easyui.min.js" />
+    <Content Include="Libs\jquery-easyui-1.4.5\jquery.min.js" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\easyui-ty.css" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\blank.gif" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\loading.gif" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="Libs\jquery-easyui-1.4.5\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="Libs\jquery-ui\jquery-ui-1.11.4.js" />
+    <Content Include="Libs\jquery-ui\jquery-ui-1.11.4.min.js" />
+    <Content Include="Libs\jquery-ui\jquery-ui.js" />
+    <Content Include="Libs\jquery-ui\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Libs\jquery.mCustomScrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Libs\jquery.mCustomScrollbar\jquery.mCustomScrollbar.css" />
+    <Content Include="Libs\jquery.mCustomScrollbar\jquery.mCustomScrollbar.js" />
+    <Content Include="Libs\jquery.mCustomScrollbar\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Libs\jquery\jquery-2.1.4.js" />
+    <Content Include="Libs\jquery\jquery-2.1.4.min.js" />
+    <Content Include="Libs\json2\json2.js" />
+    <Content Include="Libs\json2\json2.min.js" />
+    <Content Include="Libs\spinjs\jquery.spin.js" />
+    <Content Include="Libs\spinjs\spin.js" />
+    <Content Include="Libs\sweetalert\ie9.css" />
+    <Content Include="Libs\sweetalert\sweet-alert.css" />
+    <Content Include="Libs\sweetalert\sweet-alert.html" />
+    <Content Include="Libs\sweetalert\sweet-alert.js" />
+    <Content Include="Libs\sweetalert\sweet-alert.min.js" />
+    <Content Include="Libs\toastr\toastr.css" />
+    <Content Include="Libs\toastr\toastr.js" />
+    <Content Include="Libs\toastr\toastr.min.css" />
+    <Content Include="Libs\toastr\toastr.min.js" />
+    <Content Include="Libs\uploadify3.2.1\Change Log.txt" />
+    <Content Include="Libs\uploadify3.2.1\jquery.uploadify.js" />
+    <Content Include="Libs\uploadify3.2.1\jquery.uploadify.min.js" />
+    <Content Include="Libs\uploadify3.2.1\license.txt" />
+    <Content Include="Libs\uploadify3.2.1\uploadify-cancel.png" />
+    <Content Include="Libs\uploadify3.2.1\uploadify.css" />
+    <Content Include="Libs\uploadify3.2.1\uploadify.swf" />
+    <Content Include="Libs\uploadify3.2.1\__MACOSX\._Change Log.txt" />
+    <Content Include="Libs\uploadify3.2.1\__MACOSX\._uploadify.swf" />
+    <Content Include="Localization\Topevery\Topevery.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="log4net.config" />
+    <Content Include="Abp\Framework\styles\abp.mixings.less" />
+    <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
+    <Content Include="Abp\Framework\styles\abp.less" />
+    <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="Libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Libs\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Libs\jquery\jquery-2.1.4.min.map" />
+    <Content Include="Libs\sweetalert\sweet-alert.scss" />
+    <Content Include="Libs\toastr\toastr.less" />
+    <Content Include="Libs\toastr\toastr.scss" />
+    <Content Include="Libs\uploadify3.2.1\check-exists.php" />
+    <Content Include="Libs\uploadify3.2.1\index.php" />
+    <Content Include="Libs\uploadify3.2.1\uploadify.php" />
+    <Content Include="Libs\webuploader-0.1.5\README.md" />
+    <Content Include="print\Apply\CLodopPrint_Setup_for_Win32NT.zip" />
+    <None Include="Properties\PublishProfiles\JMGF.pubxml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="App_Start\TopeveryNavigationProvider.cs" />
+    <Compile Include="App_Start\TopeveryWebModule.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\TopeveryWebViewPageBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\UserTest\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\House\HouseBanIndex.cshtml" />
+    <Content Include="Views\LesseeInfo\Add.cshtml" />
+    <Content Include="Views\LesseeInfo\Index.cshtml" />
+    <Content Include="Views\House\HouseNull.cshtml" />
+    <Content Include="Views\Shared\_Layout_bck.cshtml" />
+    <Content Include="Views\LesseeInfo\Edit.cshtml" />
+    <Content Include="Views\PermanentStaff\Index.cshtml" />
+    <Content Include="Views\PermanentStaff\Edit.cshtml" />
+    <Content Include="Views\PermanentStaff\Add.cshtml" />
+    <Content Include="Views\House\HouseBanAdd.cshtml" />
+    <Content Include="Views\LesseeInfo\ToView.cshtml" />
+    <Content Include="Views\LesseeInfo\LesseeIndex.cshtml" />
+    <Content Include="Views\House\HouseBanEdit.cshtml" />
+    <Content Include="Views\LesseeInfo\TenantsSelect.cshtml" />
+    <Content Include="Views\House\HouseUnitIndex.cshtml" />
+    <Content Include="Views\House\TenantInformation.cshtml" />
+    <Content Include="Views\House\HouseLossIndex.cshtml" />
+    <Content Include="Views\Home\TodoLists.cshtml" />
+    <Content Include="Views\Home\DonetList.cshtml" />
+    <Content Include="Views\House\HouseLossAdd.cshtml" />
+    <Content Include="Views\House\ViewList.cshtml" />
+    <Content Include="Views\House\HouseUnitDataGrid.cshtml" />
+    <Content Include="Views\House\HouseKeeper.cshtml" />
+    <Content Include="Views\House\HouseKeeperAllot.cshtml" />
+    <Content Include="Views\House\HouseFacilityIndex.cshtml" />
+    <Content Include="Views\SystManage\Index.cshtml" />
+    <Content Include="Views\Contract\ContractIndex.cshtml" />
+    <Content Include="Views\ContractMent\ContractSigning.cshtml" />
+    <Content Include="Views\ContractMent\LeaseContractProcessing.cshtml" />
+    <Content Include="Views\ContractMent\ContractModif.cshtml" />
+    <Content Include="Views\ContractMent\ContractToView.cshtml" />
+    <Content Include="Views\Contract\ContractExtension.cshtml" />
+    <Content Include="Views\ContractMent\ModificationDateView.cshtml" />
+    <Content Include="Views\Shared\UploadFilePartialView.cshtml" />
+    <Content Include="Views\HouseRepair\EngineeringProjectQuery.cshtml" />
+    <Content Include="Views\HouseRepair\MinorRepairEngineeringApply.cshtml" />
+    <Content Include="Views\HouseRepair\MinorRepairEngineeringToView.cshtml" />
+    <Content Include="Views\HouseRepair\MinorRepairEngineering.cshtml" />
+    <Content Include="Views\HouseRepair\MinorRepairEngineeringTransaction.cshtml" />
+    <Content Include="Views\HouseRentApply\Index.cshtml" />
+    <Content Include="Views\HouseRentApply\LeaseReview.cshtml" />
+    <Content Include="Views\HouseRentApply\LeaseReviewDone.cshtml" />
+    <Content Include="Views\HouseRentApply\LeasingApplication.cshtml" />
+    <Content Include="Views\HouseRentApply\LeasingModif.cshtml" />
+    <Content Include="Views\HouseRentApply\LeasingView.cshtml" />
+    <Content Include="Views\House\HouseholdSelect.cshtml" />
+    <Content Include="Views\HouseRepair\HouserRepairMentIndex.cshtml" />
+    <Content Include="Views\HouseRepair\HouseRepairAdd.cshtml" />
+    <Content Include="Views\HouseRepair\HouseRepairEdit.cshtml" />
+    <Content Include="Views\Contract\ContractInfo.cshtml" />
+    <Content Include="Views\HouseRepair\RepairOptions.cshtml" />
+    <Content Include="Views\HouseRepair\EngineerUnitMentIndex.cshtml" />
+    <Content Include="Views\HouseRepair\EngineerUnitAdd.cshtml" />
+    <Content Include="Views\HouseRepair\EngineerUnitEdit.cshtml" />
+    <Content Include="Views\ContractMent\RentReduction.cshtml" />
+    <Content Include="Views\ContractMent\RentReductionApplication.cshtml" />
+    <Content Include="Views\ContractMent\ContractChoice.cshtml" />
+    <Content Include="Views\IntegrityMent\LesseeHonestyMantIndex.cshtml" />
+    <Content Include="Views\ContractMent\RentReductionTransaction.cshtml" />
+    <Content Include="Views\ContractMent\RentReductionToView.cshtml" />
+    <Content Include="Views\IntegrityMent\LesseeHonestyAdd.cshtml" />
+    <Content Include="Views\HouseRepair\RefundRentApply.cshtml" />
+    <Content Include="Views\Contract\ContractInfoByRentCollect.cshtml" />
+    <Content Include="Views\RentCollect\RentCollect.cshtml" />
+    <Content Include="Views\RentCollect\RentCollectIndex.cshtml" />
+    <Content Include="Views\RentCollect\RentCollectList.cshtml" />
+    <Content Include="Views\RentCollect\RentCollectQuery.cshtml" />
+    <Content Include="Views\RentCollect\RentOweQuery.cshtml" />
+    <Content Include="Views\DepositRefund\SecurityManagement.cshtml" />
+    <Content Include="Views\DepositRefund\SecurityTransaction.cshtml" />
+    <Content Include="Views\DepositRefund\SecurityApply.cshtml" />
+    <Content Include="Views\DepositRefund\SecurityToView.cshtml" />
+    <Content Include="Views\IntegrityMent\UnitHonestyMantIndex.cshtml" />
+    <Content Include="Views\IntegrityMent\UnitHonestyAdd.cshtml" />
+    <Content Include="Views\IntegrityMent\EngineerUnitSelect.cshtml" />
+    <Content Include="Views\Contract\RefundRentApplyInfo.cshtml" />
+    <Content Include="Views\IntegrityMent\LesseeHonestySearch.cshtml" />
+    <Content Include="Views\IntegrityMent\UnitHonestySearch.cshtml" />
+    <Content Include="Views\Contract\RefundRentApply.cshtml" />
+    <Content Include="Views\DepositRefund\DepositRefundContractChoice.cshtml" />
+    <Content Include="Views\Contract\AddRefundHouse.cshtml" />
+    <Content Include="Views\Contract\ContractInfoByRefundHouse.cshtml" />
+    <Content Include="Views\House\TempHTML.cshtml" />
+    <Content Include="Views\SystManage\ExtraIndex.cshtml" />
+    <Content Include="Views\House\SelectHouseBan.cshtml" />
+    <Content Include="Views\ContractMent\MarginManagementList.cshtml" />
+    <Content Include="Views\LesseeInfo\ToViewApp.cshtml" />
+    <Content Include="Views\ContractMent\ContractToViewApp.cshtml" />
+    <Content Include="Views\Contract\RefundHouseList.cshtml" />
+    <Content Include="Views\Report\RentCollectIndex.cshtml" />
+    <Content Include="Views\House\HouseBanAddWAP.cshtml" />
+    <Content Include="Views\Report\TenantIncomeReport.cshtml" />
+    <Content Include="Views\HouseRepair\MinorRepairEngineeringApplyToView.cshtml" />
+    <Content Include="Views\Report\HouseRentReport.cshtml" />
+    <Content Include="Views\House\HouseUnitAdd.cshtml" />
+    <Content Include="Views\Common\ModifyRecord.cshtml" />
+    <Content Include="Views\House\LeaseAndContractInfo.cshtml" />
+    <Content Include="Views\LesseeInfo\HouseRentApplyAdd.cshtml" />
+    <Content Include="Views\ContractMent\RentReductionApplicationToView.cshtml" />
+    <Content Include="Views\Contract\RefundHouseInfo.cshtml" />
+    <Content Include="Views\HouseRepair\StatementList.cshtml" />
+    <Content Include="Views\HouseRepair\TaskChangeList.cshtml" />
+    <Content Include="Views\HouseRepair\StatementImport.cshtml" />
+    <Content Include="Views\DepositRefund\SecurityApplyToView.cshtml" />
+    <Content Include="Views\Report\CashRentMonthReport.cshtml" />
+    <Content Include="Views\Contract\EditRefundHouse.cshtml" />
+    <Content Include="Views\Contract\RefundHouseInfoDone.cshtml" />
+    <Content Include="Views\House\HouseUnitDrawing.cshtml" />
+    <Content Include="Views\House\HouseBanDrawing.cshtml" />
+    <Content Include="Views\HouseMenu\HouseBanList.cshtml" />
+    <Content Include="Views\HouseMenu\HouseBanForLotteryList.cshtml" />
+    <Content Include="Views\ContractMent\ExportRentInfoForLottery.cshtml" />
+    <Content Include="Views\ContractMent\ExportRentInfoForLotteryOpen.cshtml" />
+    <Content Include="Views\BankWithholding\DiskDataGenerated.cshtml" />
+    <Content Include="Views\BankWithholding\PersonShoulPayToBank.cshtml" />
+    <Content Include="Views\BankWithholding\BankWithholImport.cshtml" />
+    <Content Include="Views\BankWithholding\PersonShoulPayToBankImport.cshtml" />
+    <Content Include="Views\Contract\RefundRentApplyInfoDone.cshtml" />
+    <Content Include="Views\Report\RentForHouseManageRp.cshtml" />
+    <Content Include="Views\Report\RentForAreaRp.cshtml" />
+    <Content Include="Views\House\HouseBanView.cshtml" />
+    <Content Include="Views\PrintRelevant\CancelContractSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\CheckOutSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\DepositBackSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\LeaseSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\ProjectApprovalSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\RentBackSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\RentReliefSheet.cshtml" />
+    <Content Include="Views\PrintRelevant\RegardsTheContract.cshtml" />
+    <Content Include="Views\PrintRelevant\HousingContract.cshtml" />
+    <Content Include="Views\Shared\_PrintRelevant.cshtml" />
+    <Content Include="Views\SystManage\ClearCache.cshtml" />
+    <Content Include="Views\SystManage\LogManagement.cshtml" />
+    <Content Include="Views\Home\EditUser.cshtml" />
+    <Content Include="Views\Home\EditPassWord.cshtml" />
+    <Content Include="Views\PrintRelevant\ConstructTaskSheet.cshtml" />
+    <Content Include="Views\House\ListHousehold.cshtml" />
+    <Content Include="Views\Report\CurrencyExchangeRp.cshtml" />
+    <Content Include="Views\RentCollect\RentCollectNew.cshtml" />
+    <Content Include="Views\HouseRepair\RefundRentApplyToView.cshtml" />
+    <Content Include="Views\HouseRepair\EngineerUnitMentImport.cshtml" />
+    <Content Include="Views\Test\Add.cshtml" />
+    <Content Include="Views\PrintRelevant\LowRentHousingContract.cshtml" />
+    <Content Include="Views\House\ListHouseban.cshtml" />
+    <Content Include="Views\RentCollect\UpdateInvoiceNumber.cshtml" />
+    <Content Include="Views\SystManage\OperatorLogs.cshtml" />
+    <Content Include="Views\BankWithholding\HistoryPersonShoulPayToBank.cshtml" />
+    <Content Include="Views\BankWithholding\HistoryDiskDataGenerated.cshtml" />
+    <Content Include="Views\BankWithholding\HistoryPersonShoulPayToBankImport.cshtml" />
+    <Content Include="Views\BigHouseRepair\DaZhongXiuEngineeringApply.cshtml" />
+    <Content Include="Views\BigHouseRepair\DaZhongXiuEngineeringIndex.cshtml" />
+    <Content Include="Views\BigHouseRepair\DaZhongXiuEngineeringTransaction.cshtml" />
+    <Content Include="Views\BigHouseRepair\DaZhongXiuEngineeringToView.cshtml" />
+    <Content Include="Views\BigHouseRepair\HouseholdSelect.cshtml" />
+    <Content Include="Views\SafetyManagement\DailySafetyInspectionManagement.cshtml" />
+    <Content Include="Views\SafetyManagement\SpecialSecurityCheckManagement.cshtml" />
+    <Content Include="Views\SafetyManagement\DangerousHouseManagement.cshtml" />
+    <Content Include="Views\SafetyManagement\BuildingDamagedConditionManagement.cshtml" />
+    <Content Include="Views\SafetyManagement\BuildingDisasterReliefManagement.cshtml" />
+    <Content Include="Views\Home\MapIndex.cshtml" />
+    <Content Include="Views\Property\PropertyIndex.cshtml" />
+    <Content Include="Views\Property\PropertyAdd.cshtml" />
+    <Content Include="Views\SafetyManagement\DailySafetyInspectionAdd.cshtml" />
+    <Content Include="Views\Property\PropertyFacility.cshtml" />
+    <Content Include="Views\Property\FacilityAdd.cshtml" />
+    <Content Include="Views\Property\PropertyFacilitys.cshtml" />
+    <Content Include="Views\SafetyManagement\DailySafetyInspectionToView.cshtml" />
+    <Content Include="Views\SafetyManagement\DailySafetyInspectionIfram.cshtml" />
+    <Content Include="Views\Shared\Safety.cshtml" />
+    <Content Include="Views\SafetyManagement\SpecialSecurityCheckAdd.cshtml" />
+    <Content Include="Views\SafetyManagement\SpecialSecurityCheckToView.cshtml" />
+    <Content Include="Views\Property\ExamineAdd.cshtml" />
+    <Content Include="Views\Property\ExamineIndex.cshtml" />
+    <Content Include="Views\SafetyManagement\DangerousHouseAdd.cshtml" />
+    <Content Include="Views\House\BuildingSelection.cshtml" />
+    <Content Include="Views\SafetyManagement\BuildingDamagedConditionAdd.cshtml" />
+    <Content Include="Views\SafetyManagement\EmergencyRescueSupplies.cshtml" />
+    <Content Include="Views\SafetyManagement\EmergencyRescueSuppliesAdd.cshtml" />
+    <Content Include="Views\SafetyManagement\BuildingDisasterReliefAdd.cshtml" />
+    <Content Include="Views\ContractMent\ImpYaoHaoInfo.cshtml" />
+    <Content Include="Views\Home\MapIndexbeifeng.cshtml" />
+    <Content Include="Views\House\TenantInformationSecurity.cshtml" />
+    <Content Include="Views\BigHouseRepair\DaZhongXiuEngineeringApplyToView.cshtml" />
+    <Content Include="Views\HouseRepair\BudgetSettlement.cshtml" />
+    <Content Include="Views\ContractMent\ModifyBankCardNmber.cshtml" />
+    <Content Include="Views\RentCollect\BadDebt.cshtml" />
+    <Content Include="Views\PrintRelevant\Residential.cshtml" />
+    <Content Include="Views\PrintRelevant\NotResidential.cshtml" />
+    <Content Include="Views\PrintRelevant\Special.cshtml" />
+    <Content Include="Views\SafetyManagement\BuildingDamagedConditionImport.cshtml" />
+    <Content Include="Views\Scheduling\ShiftMaintenance.cshtml" />
+    <Content Include="Views\Scheduling\SchedulingMenu.cshtml" />
+    <Content Include="Views\Scheduling\InspectTheLog.cshtml" />
+    <Content Include="Views\Scheduling\ClockIn.cshtml" />
+    <Content Include="Views\Scheduling\ShiftMaintenanceView.cshtml" />
+    <Content Include="Views\Scheduling\SchedulingView.cshtml" />
+    <Content Include="Views\Report\StatisticalRentReport.cshtml" />
+    <Content Include="Views\Scheduling\HousingPatrols.cshtml" />
+    <Content Include="Views\Scheduling\HousingPatrolsView.cshtml" />
+    <Content Include="Views\Scheduling\PatrolOnlyPoint.cshtml" />
+    <Content Include="Views\Scheduling\PatrolOnlyPointView.cshtml" />
+    <Content Include="Views\Scheduling\InspectTheLogView.cshtml" />
+    <Content Include="Views\House\BuildingImages.cshtml" />
+    <Content Include="Views\House\HouseUnitImage.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Ashx\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Help\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\SafetyExport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TimerServices\TimerServices.csproj">
+      <Project>{8665b5a2-9584-4e2a-8fb2-3a3cc106f225}</Project>
+      <Name>TimerServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Abp\Topevery.Abp.csproj">
+      <Project>{A5CC778A-3F6E-4951-81E7-6D663948401A}</Project>
+      <Name>Topevery.Abp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Core\Topevery.Core.csproj">
+      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
+      <Name>Topevery.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.EntityFramework.Oracle\Topevery.EntityFramework.Oracle.csproj">
+      <Project>{66988EA3-F771-4013-9A24-60DACE6E74CB}</Project>
+      <Name>Topevery.EntityFramework.Oracle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Read.Application\Topevery.Read.Application.csproj">
+      <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
+      <Name>Topevery.Read.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.WebApi\Topevery.WebApi.csproj">
+      <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
+      <Name>Topevery.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Write.Application\Topevery.Write.Application.csproj">
+      <Project>{ef7ef251-c914-46c2-9b12-9d8b80222192}</Project>
+      <Name>Topevery.Write.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Zero.Core\Topevery.Zero.Core.csproj">
+      <Project>{E3190D88-22F7-453D-A24D-B40C49B2EA28}</Project>
+      <Name>Topevery.Zero.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Zero.EntityFramework.Oracle\Topevery.Zero.EntityFramework.Oracle.csproj">
+      <Project>{1486f43c-9e3b-4c54-b3f0-63c11c1153b4}</Project>
+      <Name>Topevery.Zero.EntityFramework.Oracle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topevery.Zero\Topevery.Zero.csproj">
+      <Project>{0C310F61-5C35-4434-9E28-E6E6F12B7F8B}</Project>
+      <Name>Topevery.Zero</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>17108</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Topevery.Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

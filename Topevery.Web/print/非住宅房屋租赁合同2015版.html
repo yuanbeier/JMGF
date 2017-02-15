@@ -1,0 +1,588 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>江门市住房和城乡建设局非住宅房屋租赁合同2015版</title>
+    <link href="Css1/word2html.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../Libs/jquery-easyui-1.4.5/jquery.min.js"></script>
+    <meta charset="utf-8"/>
+    <style>
+        .textbox {
+            line-height: 28pt;
+            font-size: 14pt;
+            text-indent: 2em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        function windowPrint() {
+            var hkey_root, hkey_path, hkey_key;
+            hkey_root = "HKEY_CURRENT_USER";
+            hkey_path = "\\Software\\Microsoft\\Internet Explorer\\PageSetup\\";
+            try {
+                var RegWsh = new ActiveXObject("WScript.Shell");
+                hkey_key = "header";
+                RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+                hkey_key = "footer";
+                RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+            } catch (e) { }
+            var pHtml = window.document.body.innerHTML;
+            window.document.body.innerHTML = document.getElementById("printDiv").innerHTML;
+            window.print();
+            window.document.body.innerHTML = pHtml;
+        }
+
+        function scroll(chapter) {
+            $("html,body").animate({ scrollTop: $("." + chapter).offset().top }, 1000);
+        }
+        function loadData() {
+            var src = window.location.href;
+            var id = src.split('?id=');
+            $.ajax({
+                type: 'POST',
+                //url: "api/services/app/ContractR/GetContractPrintAsync",
+                url: '/Topevery.Web' + "/api/services/app/ContractR/GetContractPrintAsync",
+                data: JSON.stringify({ id: id[1] }),
+                cache: false,
+                contentType: "application/json",
+                Type: "JSON",
+                success: function (row) {
+                    if (row.success) {
+                        var data = row.result;
+                        for (var j in data) {
+                            $("#" + UpperFirstLetter(j) + "").html(data[j]);
+                        }
+                        $("#HouseDoorplate1").html(data.houseDoorplate);
+                        $("#TenantName1").html(data.tenantName);
+                        $("#HouseDoorplate2").html(data.houseDoorplate);
+                    }
+                }
+            });
+        }
+        ///首字母转大写
+        function UpperFirstLetter(str) {
+            return str.replace(/\b\w+\b/g, function (word) {
+                return word.substring(0, 1).toUpperCase() + word.substring(1);
+            });
+        }
+        $(function () {
+            loadData();
+        });
+    </script>
+</head>
+<body>
+        <div class="index">
+            <div class="center">
+                <input id="btnPrint" type="button" value="打印电子合同" onclick="windowPrint();" />
+            </div>
+            <ul>
+                <li><a class="chapter_a" href="javascript:scroll('chapter00')">首页</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter01')">第一条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter02')">第二条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter03')">第三条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter04')">第四条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter05')">第五条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter06')">第六条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter07')">第七条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter08')">第八条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter09')">第九条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter10')">第十条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter11')">第十一条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter12')">第十二条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter13')">第十三条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter14')">第十四条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter15')">第十五条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter16')">第十六条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter17')">第十七条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter18')">第十八条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapter19')">第十九条</a></li>
+                <li><a class="chapter_a" href="javascript:scroll('chapterFJ01')">附件一</a></li>
+            </ul>
+        </div>
+        <div id="printDiv" class="page chapter00">
+            <br /><br />
+            <div class="erhao center">江门市住房和城乡建设局</div>
+            <br />
+            <div class="xiaochu center">非住宅房屋租赁合同</div>
+            <div class="sanhao center" style="margin-top: 200px;">
+                承租人姓名：<label id="TenantName" name="TenantName" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;"></label>
+                电话：<label id="ContactNumber" name="ContactNumber" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;"></label>
+            </div><br /><br />
+            <div class="sanhao center">
+                承租地址：<label id="HouseDoorplate1" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="HouseDoorplate"></label>
+            </div>
+            <div class="xiaoer center" style="margin-top: 500px;">
+                合同编号：<label id="ContractNo" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="ContractNo"></label>
+            </div>
+            <div class="fenyefu"></div>
+            <div class="xiaoer center b" style="margin-top: 50px;">江门市住房和城乡建设局非住宅房屋租赁合同</div><br /><br />
+            <div>
+                <p class="b">出租方(以下称甲方): 江门市市区公房管理中心</p><br />
+                <p class="b">承租方(以下称乙方):<label id="TenantName1" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="TenantName"></label></p><br />
+                <p>根据《中华人民共和国合同法》及相关法律法规的规定，甲、乙双方在平等、自愿的基础上，经协商一致，订立本合同。</p>
+                <p>本合同作为乙方承租房屋使用权的依据，甲乙双方均应自觉遵守国家房地产管理的法律、法规、规章、政策以及本市房地产管理的有关规定，自觉履行本合同的条款。</p>
+                <p class="b chapter01">第一条 房屋的坐落、面积、装修、设施情况</p>
+                <p>
+                    1、甲方同意将坐落在江门市<label id="HouseDoorplate" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="HouseDoorplate"></label><label id="RentRange" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="RentRange"></label>的房屋出租给乙方使用。乙方愿意承租。
+                </p>
+                <p>
+                    2、出租房屋建筑面积<label id="BuildArea" style="border-bottom: 1px solid black;margin-top: 10px;width: 150px;display: inline-block;margin-bottom: -10px;" name="BuildArea"></label>平方米，使用面积<label id="MetRentArea" style="border-bottom: 1px solid black;margin-top: 10px;width: 150px;display: inline-block;margin-bottom: -10px;" name="MetRentArea"></label>平方米。
+                </p>
+                <p>
+                    3、该房屋现有装修及设施、设备情况详见本合同附件一（房屋设施清单）。该附件作为甲方按照本合同约定交付乙方使用和乙方在应交还该房屋时验收的依据。
+                </p>
+                <p>
+                    4、乙方对甲方出租上述房屋没有任何异议，且乙方已对房屋的相关情况充分了解。
+                </p>
+                <p class="b chapter02">
+                    第二条 租赁期限、用途
+                </p>
+                <p>
+                    1、乙方租用甲方上述房屋租赁期自<label id="RentStartTimes" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="RentStartTimes"></label>起至<label id="RentEndTimes" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="RentEndTimes"></label>止。
+                </p>
+                <p>
+                    2、乙方向甲方承诺，租赁该非住宅房屋仅作为 使用。乙方保证，在租赁期内未征得甲方书面同意，不擅自改变该房屋的用途。
+                </p>
+                <p class="b chapter03">
+                    第三条 租金及支付方式
+                </p>
+                <p>
+                    1、租赁期内<label id="LeaseDurStartTimes" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="LeaseDurStartTimes"></label>至<label id="LeaseDurEndTimes" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="LeaseDurEndTimes"></label>月租金为（人民币）<label id="MonthMoneyCapital" style="border-bottom: 1px solid black;margin-top: 10px;width: 230px;display: inline-block;margin-bottom: -10px;" name="MonthMoneyCapital"></label>（￥<label id="MonthMoneyLetter" style="border-bottom: 1px solid black;margin-top: 10px;width: 100px;display: inline-block;margin-bottom: -10px;" name="MonthMoneyLetter"></label>元）。
+                </p>
+                <p>
+                    ＿ ＿年＿＿月＿＿日至＿ ＿年＿＿月＿＿日月租金调整为（人民币）＿＿万＿＿仟＿＿佰＿＿拾＿＿元＿＿角（￥＿＿ ＿元）。
+                </p>
+                <p>
+                    ＿ ＿年＿＿月＿＿日至 ＿＿年＿＿月＿ 日月租金再次调整为（人民币）＿＿万＿＿仟＿＿佰＿＿拾＿＿元＿＿角（￥＿＿ ＿元）。
+                </p>
+                <p>
+                    ＿ ＿年＿＿月＿＿日至 ＿＿年＿＿月＿ 日月租金再次调整为（人民币）＿＿万＿＿仟＿＿佰＿＿拾＿＿元＿＿角（￥＿＿ ＿元）。
+                </p>
+                <p>
+                    2、乙方承租房屋的租金按租用范围计算与建筑面积无关，乙方必须在每月的10日前缴付当月租金给甲方。
+                </p>
+                <p>
+                    3、乙方选择下述第 的方式缴纳租金：
+                </p>
+                <p>
+                    （1）委托工商银行划缴租金，划缴租金帐号： ；
+                </p>
+                <p>
+                    （2）每月直接到甲方辖区工作站收租窗口缴纳租金。
+                </p>
+                <p>
+                    4、乙方租赁甲方的房屋，如租赁时间超过半个月而不足一个月的，按一个月计算租金，不足半个月的，按半个月计算租金。
+                </p>
+                <p class="b chapter04">
+                    第四条 租赁保证金
+                </p>
+                <p>
+                </p>
+                <p>
+                    行本合同的租赁保证金，共计（人民币）<label id="LeaseDepositCapital" style="border-bottom: 1px solid black;margin-top: 10px;width: 250px;display: inline-block;margin-bottom: -10px;" name="LeaseDepositCapital"></label>（￥<label id="LeaseDepositLetter" style="border-bottom: 1px solid black;margin-top: 10px;width: 100px;display: inline-block;margin-bottom: -10px;" name="LeaseDepositLetter"></label>元）。租赁保证金单据号 
+                </p>
+                <p>
+                    2、租赁期满或合同解除、终止，租赁保证金除抵扣应由乙方承担的费用、租金、以及乙方应承担的违约赔偿责任外，剩余部分一次性无息返还给乙方。
+                </p>
+                <p>
+                    3、租赁保证金单据丢失的，乙方要及时到甲方办理挂失手续。
+                </p>
+                <p>
+                    4、因乙方过错造成房屋损坏和拖欠房屋租金、水电费、物业管理费等或乙方有违约行为，所产生的费用，甲方有权从租赁保证金中扣除，不足扣除的甲方有权追偿。
+                </p>
+                <p>
+                    5、未经甲方同意保证金不得用作抵顶租金或其他乙方应付费用。
+                </p>
+                <p class="b chapter05">
+                    第五条 房屋的交付和返还
+                </p>
+                <p>
+                    1、甲方应于 年 月 日前将房屋按约定条件交付给乙方。（房屋设施清单）经双方交验签字盖章并移交钥匙后视为交付完成。
+                </p>
+                <p>
+                    2、租赁期满乙方应于 年 月 日前将房屋返还给甲方，并搬出全部设备、物件，期满后房屋里仍有的余物，如双方无约定，视为乙方放弃所有权，由甲方处理，由此产生的一切责任由乙方承担。
+                </p>
+                <p>
+                    3、因乙方责任导致合同解除的，乙方应在收到解除租赁合同通知之日起十天内搬出属于乙方的全部设备及所有物品，逾期未取走的余物，如双方无约定，视为乙方放弃所有权，甲方有权处理并收回房屋，由此产生的一切责任由乙方承担。
+                </p>
+                <p>
+                    4、乙方返还该房屋应当符合正常使用的状态。返还时应满足下列条件：
+                </p>
+                <p>
+                    （1）保证租赁房屋本身及固定装修的完好，附属设施、设备处于能够正常使用状态；
+                </p>
+                <p>
+                    （2）以（房屋设施清单）作为依据交验，房屋交验时双方共同参与，如对装饰装修、器物、设施、设备有异议应当场提出，当场难以检测判断的，应于3 个工作日内向对方主张；
+                </p>
+                <p>
+                    （3）应付清租金和各项费用（包括水费、电费、燃气费、有线电视管理费、物业管理费等），并将屋内一切垃圾、杂物清理干净。
+                </p>
+                <p>
+                    5、满足以上退房条款条件的，在办理退房手续后，并按下列条款办理租赁保证金的退还:
+                </p>
+                <p>
+                    （1）乙方本人办理的，需持本人身份证、保证金单据、银行存折或银行卡；
+                </p>
+                <p>
+                    （2）委托他人办理的，需持委托文件（委托书）、委托人和受托人的身份证、保证金单据、银行存折或银行卡。
+                </p>
+                <p class="b chapter06">
+                    第六条 房屋修缮及装饰装修
+                </p>
+                <p>
+                    1、租赁期间，甲方应负责房屋自然损坏的正常维修(设备、设施的维修事宜见附件一)。
+                </p>
+                <p>
+                    2、如房屋发生非因乙方原因造成的自然损坏，甲方应在接到乙方维修申请后做出修缮计划，确定修缮时间并通知乙方。
+                </p>
+                <p>
+                    3、乙方应合理使用并爱护该房屋及其附属设施，发现该房屋及其附属设施有损坏或故障时，应及时通知甲方修复。
+                </p>
+                <p>
+                    4、因乙方使用不当或不合理使用，致使该房屋及其附属设施损坏或发生故障的，乙方应负责维修。
+                </p>
+                <p>
+                    5、乙方另需装饰装修或者增设附属设施和设备的，甲方不承担维修的义务，并应事先征得甲方的书面同意。
+                </p>
+                <p>
+                    6、乙方增设的附属设施和设备，除双方另行书面约定外,归甲方所有。
+                </p>
+                <p>
+                    7、应由甲方维修而逾期不维修的，乙方可代为维修，费用由甲方承担；应由乙方负责维修而拒不维修的，甲方可代为维修，费用由乙方承担。
+                </p>
+                <p>
+                    8、甲方修缮房屋时，乙方应积极协助，不得阻挠施工。
+                </p>
+                <p>
+                    9、乙方因使用需要，在不影响房屋结构的前提下，可以对承租房屋进行装饰装修，但需将装饰装修方案报甲方书面同意后方可施工，租赁期满后或因乙方责任导致合同提前解除的，除一切嵌在房屋结构内的附属设施和双方另有约定外，针对装饰装修，甲方有权选择以下方式中的一种处理：
+                </p>
+                <p>
+                    （1）依附于房屋的装修归甲方所有；
+                </p>
+                <p>
+                    （2）要求乙方恢复房屋原状；
+                </p>
+                <p>
+                    （3）向乙方收取拆除装修恢复房屋原状工程发生的全部费用。
+                </p>
+                <p class="b chapter07">
+                    第七条 通知的送达
+                </p>
+                <p>
+                    甲方：<label id="FirstParty" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="FirstParty"></label>
+                </p><p>
+                    地址：<label id="FirstPartyAddress" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="FirstPartyAddress"></label>。
+                </p><p>
+                    联系电话为：<label id="FirstPartyTel" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="FirstPartyTel"></label>。
+                </p><p>
+                    乙方：<label id="SecondParty" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="SecondParty"></label>
+                </p><p>
+                    地址：所承租的房屋为通讯地址或<label style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" ></label>。
+                </p><p>
+                    联系电话为：<label id="SecondPartyTel" style="border-bottom: 1px solid black;margin-top: 10px;width: 200px;display: inline-block;margin-bottom: -10px;" name="SecondPartyTel"></label>。
+                </p>
+                <p>
+                    任何一方可变更以上通知、通讯地址和联系电话，须将新的地址和联系电话通知对方，不予通知的视为未变更。
+                </p>
+                <p>
+                    2、通知可以专人递交，或以挂号信件、快递服务，或图文传真发送到另一方。双方确认下列方式均视为有效送达：
+                </p>
+                <p>
+                    （1）专人递交的通知对方拒绝签收的，送达人有权留置送达，留置之日视为送达；
+                </p>
+                <p>
+                    （2）以图文传真发送的通知在成功传送后的第一个工作日视为送达；
+                </p>
+                <p>
+                    （3）以挂号信件、快递服务发送的通知在有效寄出后第一个工作日视为送达；
+                </p>
+                <p>
+                    （4）将通知张贴于承租房屋的正门范围，张贴的通知从张贴之日视为送达。
+                </p>
+                <p class="b chapter08">
+                    第八条 甲方的权利和义务
+                </p>
+                <p>
+                    1、依本合同约定的期限将上述房屋交付乙方使用。
+                </p>
+                <p>
+                    2、依本合同约定向承租人收取租金。
+                </p>
+                <p>
+                    3、承担房屋自然损坏的维修责任。
+                </p>
+                <p class="b chapter09">
+                    第九条 乙方的权利和义务
+                </p>
+                <p>
+                </p>
+                <p>
+                    1、依本合同约定按期缴纳租金。
+                </p>
+                <p>
+                    2、保证不擅自改变房屋用途。
+                </p>
+                <p>
+                    3、未经甲方书面同意，不得对房屋（含公共部分）进行扩建、加建、改建（含改变间隔）、装修。
+                </p>
+                <p>
+                    4、爱护和合理使用房屋及附属设备。
+                </p>
+                <p>
+                    5、乙方增设的一切嵌在房屋结构内的附属设施及设备（水电），除另有约定外归甲方所有，不得拆除和破坏。
+                </p>
+                <p>
+                    6、负责承租房屋的使用安全、消防安全和用电用气安全责任。不得在房屋内及公共地方储存、堆放易燃或危险品；不得在房屋内及公共地方堆放超过房屋承载能力的货物。防止事故发生。
+                </p>
+                <p>
+                    7、协助甲方做好房屋和设备的安全检查，不得以任何理由和借口拒绝甲方人员入屋进行房屋安全检查，发现房屋及其设备自然损坏时，应及时通知甲方并积极配合甲方检查和维修。
+                </p>
+                <p>
+                    8、甲方需要对出租的房屋进行解危、加固、维修、改建时乙方应按房屋管理单位的要求在规定时间内搬迁；因城市建设需要征收房屋时，本合同提前解除，乙方无条件自行安置，并不得向甲方索取任何费用和损失。
+                </p>
+                <p>
+                    9、租赁期限届满或合同提前解除，要按期将承租的房屋及附属设施、设备完好的返还给甲方。
+                </p>
+                <p class="b chapter10">
+                    第十条 合同的变更、解除与终止
+                </p>
+                <p>
+                    1、双方可以协商变更或终止本合同。
+                </p>
+                <p>
+                    2、因不能预见、不能避免并不能克服的客观因素或因政府征收、改造导致合同无法履行的，合同解除。
+                </p>
+                <p>
+                    3、甲方有以下行为之一的，乙方有权解除合同：
+                </p>
+                <p>
+                    （1）不能提供房屋或所提供房屋不符合约定条件的；
+                </p>
+                <p>
+                    （2）甲方未尽房屋修缮义务，严重影响使用的。
+                </p>
+                <p>
+                    4、乙方有下列情形之一的，甲方有权提前解除租赁合同，收回房屋：
+                </p>
+                <p>
+                    （1）利用房屋进行违法活动的；
+                </p>
+                <p>
+                    （2）擅自拆改房屋结构，影响房屋安全的；
+                </p>
+                <p>
+                    （3）擅自将房屋转租、分租、转借他人或擅自调换使用的；
+                </p>
+                <p>
+                    （4）擅自与他人合作、联营、承包经营等使用租赁房屋的；
+                </p>
+                <p>
+                    （5）拖欠房租累计三个月以上的；
+                </p>
+                <p>
+                    （6）损坏承租房屋，在甲方提出的合理期限内仍未修复的；
+                </p>
+                <p>
+                    （7）未经甲方书面同意，改变本合同约定的用途使用租赁房屋的。
+                </p>
+                <p>
+                    5、符合本合同约定情况一方主张解除本合同的，应当书面通知对方。对方有异议的，可以在3天内向主张方书面提出异议，并10天内请求人民法院确认解除合同的效力，逾期未向人民法院提出请求的，按书面通知规定的期限解除本合同。
+                </p>
+                <p>
+                    6、租赁期满合同自然终止。
+                </p>
+                <p class="b chapter11">
+                    第十一条 违约责任
+                </p>
+                <p>
+                    1、任何一方未能履行本合同规定的条款或违反国家、省、市房屋管理的有关法律、法规规定，另一方有权提前解除合同，造成的损失由责任方承担。
+                </p>
+                <p>
+                    2、甲方不按合同约定交付房屋给乙方，自逾期之日起按本合同的日租金计算每日向乙方支付违约金，但违约金累计不得超过3个月的租金。甲方逾期交付房屋超过60天，乙方有权单方面解除合同。
+                </p>
+                <p>
+                    3、租赁期间，非本合同规定的情况，甲方擅自解除本合同，提前收回该房屋的，甲方应按提前收回天数租金的20%向乙方支付违约金。
+                </p>
+                <p>
+                    4、租赁期间，非本合同规定的情况，乙方中途擅自退租的，乙方应按提前退租天数租金的20%向甲方支付违约金。
+                </p>
+                <p>
+                    5、甲方违反第十条第3项行为之一的，应按期整改，并按照违约期间租金总额的100%向乙方支付违约金。
+                </p>
+                <p>
+                    6、乙方未征得甲方书面同意或者超出甲方书面同意的范围和要求装饰装修房屋或者增设附属设施的，甲方可以要求乙方恢复房屋原状或赔偿损失。
+                </p>
+                <p>
+                    7、乙方违反十条第4项（5）拖欠租金的，除补缴全部欠租外还应支付违约金，违约金自欠租之日起每日按拖欠租金总额的2‰计收。
+                </p>
+                <p>
+                    8、乙方有第十条第4项（1）、（7）行为之一的，除缴纳正常租金外，应按期整改，并按照违约期间租金总额的100%向甲方支付违约金。
+                </p>
+                <p>
+                    9、乙方违反第九条第5项和第十条第4项（2）、（3）、（6）行为之一的，除缴纳正常租金外，应按期予以修复或支付恢复工程的全部费用，并按照违约至修复完毕期间租金总额的100%向甲方支付违约金，若支付的违约金不足弥补甲方损失的，乙方还应负责赔偿直至达到弥补全部损失为止。
+                </p>
+                <p>
+                    10、因使用不当等乙方过错导致房屋及附属设施（如下水管道、排粪管、化粪池等）不能正常使用的，由乙方负责及时修复或赔偿。
+                </p>
+                <p>
+                    11、合同终止或符合第十条第4项提前解除合同时，乙方在合同终止之日前或收到解除租赁合同通知中规定的退房期限内，不办理退房手续的，视为已经退房。
+                </p>
+                <p>
+                    12、符合第十条第4项提前解除合同时，乙方逾期不退还承租房屋的，视为强占公房，且乙方同意按原租金的两倍向甲方支付强占期间的租金，给甲方造成损失的乙方还应承担赔偿责任。
+                </p>
+                <p>
+                    13、如果双方在履行本合同中产生纠纷无法协商一致解决的，则违约方应承担守约方为维护自己权益支出的包括诉讼费、取证费、律师费等全额费用。
+                </p>
+                <p class="b chapter12">
+                    第十二条 免责条件
+                </p>
+                <p>
+                    1、因不可抗力或政府拆迁、改造原因致使本合同不能继续履行或造成的损失，甲、乙双方互不承担责任。（不可抗力系指“不能预见、不能避免并不能克服的客观情况”。）
+                </p>
+                <p>
+                    2、因国家政策或经鉴定为危房需要拆除或改造已租赁的房屋，使甲、乙双方造成损失的，互不承担责任。
+                </p>
+                <p>
+                    3、因上述原因而终止合同的，租金按照实际使用时间计算，不足整月的按天数计算，多退少补。
+                </p>
+                <p class="b chapter13">
+                    第十三条 当乙方承租的房屋所坐落的区域实施有物业管理时，乙方同意接受物业管理，与 签订《物业管理服务合同》，履行相应的义务，并按时向物业管理企业交纳物业管理费。
+                </p>
+                <p class="b">
+                    当乙方承租的房屋列入历史建筑名录的，同时要遵守有关管理规定。
+                </p>
+                <p class="b chapter14">
+                    第十四条 本合同未尽事宜，经甲、乙双方协商一致，可订立补充条款，补充条款及附件均属本合同的组成部分，与本合同具有同等法律效力。
+                </p>
+                <p class="b chapter15">
+                    第十五条 本合同在履行中若发生争议，甲乙双方协商解决，协商不成的，任何一方均可向人民法院提起诉讼。
+                </p>
+                <p class="b chapter16">
+                    第十六条 甲方已提请乙方对本合同各条款作全面、准确的理解，并应乙方的要求对相应条款作了说明，乙方确认对本合同全部内容不存在误解或歧义。
+                </p>
+                <p class="b chapter17">
+                    第十七条 其它约定事项：（如无其他约定，应注明无约定）＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+                    ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+                </p>
+                <p class="b chapter18">
+                    第十八条 本合同自双方签字盖章之日起生效。
+                </p>
+                <p class="b chapter19">
+                    第十九条 本合同一式叁份，甲乙双方各执一份，备案一份。
+                </p>
+                <div>
+                    <table class="mark_table">
+                        <tr><td>甲 方：</td><td></td><td>乙 方：</td><td></td></tr>
+                        <tr><td>经办人：</td><td></td><td>身份证号码：</td><td></td></tr>
+                        <tr><td></td><td></td><td>代理人：</td><td></td></tr>
+                        <tr><td></td><td></td><td>代理人联系电话：</td><td></td></tr>
+                        <tr>
+                            <td> 签订日期：</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;月&nbsp;&nbsp;日 </td>
+                            <td>签订日期：</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;月&nbsp;&nbsp;日</td>
+                        </tr>
+                    </table>
+                </div>
+                <br /><br />
+                <div class="fenyefu"></div>
+                <div class="chapterFJ01">
+                    附件一：
+                </div>
+                <div class="xiaoer center b">房屋设施清单</div>
+                <div>
+                    <table class="appendix_table">
+                        <tr>
+                            <th style="width: 12.5%">项目</th>
+                            <th style="width: 37.5%">内容</th>
+                            <th style="width: 12.5%">项目</th>
+                            <th style="width: 37.5%">内容</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">结构</td>
+                            <td class="left">钢筋混凝土 □ 混合 □ 砖木 □</td>
+                            <td rowspan="2">窗</td>
+                            <td class="left">木窗 □ 钢窗 □ 铝合金窗 □</td>
+                        </tr>
+                        <tr>
+                            <td class="left">其它：</td>
+                            <td class="left">其它：</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">外<br />墙<br />面</td>
+                            <td class="left">釉面砖 □ 马赛克 □ 水刷石 □ 批荡 □ 清水墙 □ 抹平扫白 □ 油外墙漆 □ </td>
+                            <td>入户<br />（厅）<br />门</td>
+                            <td class="left">木门 □ 铁门 □ 不锈钢门 □ 铝门 □ 卷闸 □ 塑料门 □ 地弹玻璃门 □ </td>
+                        </tr>
+                        <tr>
+                            <td class="left">其它：</td>
+                            <td>房门</td>
+                            <td class="left">木门 □ 铝门 □ 塑料门 □ </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">地面</td>
+                            <td rowspan="2" class="left">抛光砖 □ 耐磨砖 □ 大红阶砖 □ 马赛克 □ 水泥砂地面 □ 花阶砖 □ 一般木料、杉木地面 □ </td>
+                            <td>厨房门</td>
+                            <td class="left">木门 □ 铝门 □ 塑料门 □</td>
+                        </tr>
+                        <tr>
+                            <td>厕所门</td>
+                            <td class="left">木门 □ 铝门 □ 塑料门 □ </td>
+                        </tr>
+                        <tr>
+                            <td class="left">其它：</td>
+                            <td>阳台门</td>
+                            <td class="left">木门 □ 铝门 □ 铁门 □</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">房厅<br />内墙面</td>
+                            <td class="left">批荡 □ 煽灰 □ 彩色喷涂 □ 壁板 □ 贴墙纸 □ 扫乳胶漆 □ 抹平扫白 □ 木板间隔 □ 硅酸钙板间隔 □ 纤维板间隔 □ </td>
+                            <td>厨房</td>
+                            <td class="left">洗菜盘 □ 水龙头（ ）个<br /> 灶基（水泥板 □ 花岗岩 □）</td>
+                        </tr>
+                        <tr>
+                            <td class="left">其它：</td>
+                            <td>厕所</td>
+                            <td class="left">洗手盘 □ 大便器 □<br />水龙头（ ）个</td>
+                        </tr>
+                        <tr>
+                            <td>厕所<br />内墙面</td>
+                            <td class="left">批荡 □ 瓷砖 □ 抹平扫白 □ </td>
+                            <td rowspan="3">照明</td>
+                            <td class="left">厅 □ 光管（ ）支 房 □<br /> 光管（ ）支 </td>
+                        </tr>
+                        <tr>
+                            <td>厨房<br />内墙面</td>
+                            <td class="left">批荡 □ 瓷砖 □ 抹平扫白 □</td>
+                            <td class="left">厨房 □ 灯泡（ ）个 □ 光管（ ）支 □ 吸顶灯（ ）套</td>
+                        </tr>
+                        <tr>
+                            <td>阁</td>
+                            <td class="left">原阁 □ 高度（ ）米<br />自建阁 □ 高度（ ）米</td>
+                            <td class="left">厕所 □ 灯泡（ ）个 <br />□ 光管（ ）支<br />□ 吸顶灯（ ）套</td>
+                        </tr>
+                        <tr>
+                            <td>公共<br />防盗门</td>
+                            <td class="left">有 □ 无 □ </td>
+                            <td>电表</td>
+                            <td class="left">独立 □ 共用 □ 无 □</td>
+                        </tr>
+                        <tr>
+                            <td>防盗网</td>
+                            <td class="left">阳台 □ 有 □ 无 □<br />窗 □ 有 □ 无 □</td>
+                            <td>水表</td>
+                            <td class="left">独立 □ 共用 □ 无 □</td>
+                        </tr>
+                        <tr><td>备注：</td><td colspan="3" class="left"></td></tr>
+                        <tr><td rowspan="2" style="width: 150px;">交接双方<br />签名确认</td><td>甲方经办人</td><td colspan="2"></td></tr>
+                        <tr><td>乙 方</td><td colspan="2"></td></tr>
+                    </table>
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+</body>
+</html>

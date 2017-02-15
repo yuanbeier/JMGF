@@ -1,0 +1,13 @@
+.line-text-box{
+    outline: none;
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.write-detail-wrap{
+    padding: 15px;
+    background-color: #ffffff;
+    margin: 15px;
+}

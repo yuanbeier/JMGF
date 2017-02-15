@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>租赁住宅房屋申请审批表</title>
+    <script src="../../Libs/jquery-easyui-1.4.5/jquery.min.js"></script>
+    <script src="../../Js/base.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/printSheet.css">
+    <script type="text/javascript" src="js/LodopFuncs.js"></script>
+    <script type="text/javascript">
+        function loadData() {
+            var src = window.location.href;
+            var id = src.split('?id=');
+            $.ajax({
+                type: 'POST',
+                url: topevery.virtualDirName + "/gf/api/services/app/HouseRentApplyR/GetHousingAndTenantInfoAsync",
+                data: JSON.stringify({ id: id[1] }),
+                cache: false,
+                contentType: "application/json",
+                Type: "JSON",
+                success: function(row) {
+                    if (row.success) {
+                        var data = row.result;
+                        for (var j in data) {
+                            $("#" + UpperFirstLetter(j) + "").html(data[j]);
+                        }
+                        if (data!= null) {
+                            $("#DateBirth").html(topevery.dataTimeFormat(data.dateBirth));
+                        }
+                    }
+                }
+            });
+        };
+        ///首字母转大写
+        function UpperFirstLetter(str) {
+            return str.replace(/\b\w+\b/g, function(word) {
+                return word.substring(0, 1).toUpperCase() + word.substring(1);
+            });
+        }
+        $(function() {
+            loadData();
+        });
+    </script>
+</head>
+<a href="javascript:printPreview()">打印预览</a>
+<a href="javascript:directPrint()">直接打印</a>
+<a href="javascript:selectPrinter()">选择打印机</a>
+<body>
+    <form class="print-sheet-wrap" id="print-sheet">
+        <table class="print-sheet">
+            <caption>租赁住宅房屋申请审批表</caption>
+            <tr>
+                <th rowspan="4" width="40">申<br/>请<br/>人<br/>情<br/>况</th>
+                <th colspan="2" class="width-50"><p>申请人姓名</p></th>
+                <td colspan="2" width="100"><p style="width:70px"><label id="Name" name="Name"></label></p></td>
+                <th colspan="2" class="width-50"><p>性别</p></th>
+                <td colspan="2"><label id="SexName" name="SexName"></label></td>
+                <th colspan="2" class="width-50"><p>出生日期</p></th>
+                <td colspan="2"><label id="DateBirth" name="DateBirth"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>身份证号码</p></th>
+                <td colspan="10"><label id="CertNo" name="CertNo"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>户籍所在地</p></th>
+                <td colspan="4"><label id="ContactAddress" name="ContactAddress"></label></td>
+                <th colspan="2" class="width-50"><p>联系电话</p></th>
+                <td colspan="4"><label id="ContactNumber" name="ContactNumber"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>工作单位</p></th>
+                <td colspan="6"><label id="WorkUnits" name="WorkUnits"></label></td>
+                <th colspan="2" class="width-50"><p>常住人数</p></th>
+                <td colspan="2"><label id="FamilyMembersCount" name="FamilyMembersCount"></label></td>
+            </tr>
+            <tr>
+                <th rowspan="4" class="width-40">租<br/>赁<br/>房<br/>屋<br/>情<br/>况</th>
+                <th colspan="2" class="width-50"><p>房屋坐落</p></th>
+                <td colspan="4"><label id="HouseDoorplate" name="HouseDoorplate"></label></td>
+                <th colspan="2" class="width-50"><p>租用范围</p></th>
+                <td colspan="4"><label id="RentRange" name="RentRange"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>建筑面积</p></th>
+                <td colspan="2"><label id="BuildArea" name="BuildArea"></label></td>
+                <th colspan="2" class="width-50"><p>计租面积</p></th>
+                <td colspan="2"><label id="MetRentArea" name="MetRentArea"></label></td>
+                <th colspan="2" class="width-50"><p>建筑结构</p></th>
+                <td colspan="2"><label id="BuildStructureName" name="BuildStructureName"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>月租金</p></th>
+                <td colspan="6"><label id="MonthMoney" name="MonthMoney"></label></td>
+                <th colspan="2" class="width-50"><p>用途</p></th>
+                <td colspan="2"><label id="UsePropertyName" name="UsePropertyName"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>交租方式</p></th>
+                <td colspan="2"><label id="PayTypeName" name="PayTypeName"></label></td>
+                <th colspan="2" class="width-50"><p>银行账号</p></th>
+                <td colspan="6"><label id="BankCardNo" name="BankCardNo"></label></td>
+            </tr>
+            <tr>
+                <th class="width-40">申<br/>请<br/>理<br/>由</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">申请人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">初<br/>审<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">房管员签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">复<br/>审<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">工作站负责人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">审<br/>核<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">租赁部部长签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">审<br/>批<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">分管主任签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script language="javascript" type="text/javascript">
+        var LODOP; //声明为全局变量
+        function directPrint() {
+            CreateFormPage();
+            LODOP.PRINT();
+        }
+        function selectPrinter() {
+            CreateFormPage();
+            LODOP.PRINTA();
+        }
+
+        function printPreview(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_全页");
+            LODOP.ADD_PRINT_HTM("3%","5%","90%","100%",document.documentElement.innerHTML);
+            LODOP.PREVIEW();
+        }
+        function CreateFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印页面部分内容");
+            LODOP.ADD_PRINT_HTM(88,200,350,600,document.getElementById("print-sheet").innerHTML);
+        }
+    </script>
+</body>
+</html>

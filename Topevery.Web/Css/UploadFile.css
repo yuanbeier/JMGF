@@ -1,0 +1,58 @@
+﻿
+    body, p {
+        margin: 0;
+        font-family: "Microsoft Yahei";
+    }
+
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .uploadImg {
+        font-size: 0;
+    }
+
+        .uploadImg li {
+            position: relative;
+            display: inline-block;
+            margin: 10px 10px 0 0;
+            line-height: 0;
+        }
+
+    .imgWrap {
+        padding: 5px;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        display: inline-block;
+        line-height: 0;
+    }
+
+    .uploadImg li img {
+        border-radius: 4px;
+    }
+
+    .uploadImg p {
+        width: 112px;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        color: #333;
+        padding-top: 5px;
+        text-align: center;
+    }
+
+    .uploadImg .delete {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 24px;
+        top: 4px;
+        border-radius: 50%;
+        font-size: 14px;
+        line-height: 0;
+    }

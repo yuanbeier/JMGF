@@ -1,0 +1,131 @@
+﻿/*默认样式重置*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "simsun";
+    font-size: 12pt;
+}
+th,td{
+    font-weight: normal;
+    border:1pt solid #000;
+    padding: 10pt;
+    position: relative;
+    text-align: center;
+    /*white-space: nowrap;*/
+    white-space: inherit;
+}
+p{
+    margin: 0;
+}
+/*通用样式*/
+.position-absolute-left{
+    text-align: left;
+    width: 200pt;
+    position: absolute;
+    left: 10pt;
+    bottom:10pt;
+}
+.position-absolute-right{
+    text-align: right;
+    width: 200pt;
+    position: absolute;
+    right: 10pt;
+    bottom:10pt;
+}
+.color-red{
+    color:red;
+}
+.bg-yellow{
+    background-color: yellow;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+.padding-left{
+    padding-left: 15pt;
+}
+.padding-right{
+    padding-right: 15pt;
+}
+.width-100{
+    width: 200pt;
+}
+.width-50{
+    width: 50pt;
+}
+.height-50{
+    height: 50pt;
+}
+
+.height-3{
+    height: 3cm;
+}
+.height-4{
+    height: 4cm;
+}
+.vertical-align-bottom{
+    vertical-align: bottom;
+}
+.text-align-right{
+    text-align: right;
+}
+.text-align-left{
+    text-align: left;
+}
+.text-align-center{
+    text-align: center;
+}
+/*命名样式*/
+.print-sheet-wrap{
+    margin: 0 auto 20pt;
+    width: 990px;
+}
+.print-sheet {
+    width: 100%;
+    border: solid 2pt #000;
+    border-collapse:collapse;
+}
+.print-sheet tr th p{
+    width: 60pt;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+}
+.print-sheet tr td p{
+    width: 200pt;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.print-sheet caption{
+    font-size: 20pt;
+    padding-bottom: 15pt;
+}
+.print-sheet td {
+    width: 80pt;
+    height: 17px;
+}
+.remarks{
+    margin-top: 5pt;
+    font-size: 11pt;
+}
+.easyui-normalbluebutton {
+    height: 30px;
+    background-color: #0068b7;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0px 12px;
+    text-decoration: none;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    font-size: 12px;
+}

@@ -1,0 +1,641 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    /*padding: 10px;*/
+    min-width: 1000px;
+}
+
+.nav-area, .searching-area, .more-search-list, .completed-search-list {
+    background-color: #fff;
+    /*border-bottom: 1px solid #dcdcdc;*/
+    line-height: 42px;
+    padding: 0 30px 0 20px;
+    /*font-size: 12px;*/
+    color: #898989;
+}
+
+.house-lost-register-form {
+    border-color: rgb(220, 220, 220);
+    background-color: rgb(255, 255, 255);
+}
+
+.nav-area {
+    /*margin-right: 15px;*/
+}
+
+.nav-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background: url("../images/icons/nav-icon.png") no-repeat center center;
+    vertical-align: middle;
+}
+
+.more-search-btn {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 80px 0 30px;
+    position: relative;
+}
+
+.more-search-list {
+    position: absolute;
+    white-space: nowrap;
+    left: -400px;
+    display: none;
+    top: 46px;
+    z-index: 999;
+}
+
+.nav-area {
+    width: 230px;
+    display: none;
+}
+
+.toolbar-area {
+    position: relative;
+    padding-bottom: 10px;
+    background-color: #f5f5f5;
+}
+
+.searching-area {
+    position: relative;
+    top: 0;
+    right: 0;
+    padding-bottom: 2px;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.line-height-30 {
+    line-height: 30px;
+}
+
+.more-search-list label {
+    margin-right: 10px;
+}
+
+.pending-list-area {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    padding: 15px 15px 30px 15px;
+    margin-top: 15px;
+}
+
+.more-arrow-down, .more-arrow-border {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+}
+
+.more-arrow-down {
+    top: -15px;
+    left: 50%;
+    margin-left: 118px;
+    border-bottom: 16px solid #fff;
+}
+
+.more-arrow-border {
+    top: -17px;
+    left: 50%;
+    margin-left: 118px;
+    border-bottom: 16px solid #dcdcdc;
+}
+
+.operate-area {
+    margin-bottom: 15px;
+}
+
+.bulb-sign {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url("../images/icons/bulb-sign.png") no-repeat;
+    vertical-align: middle;
+}
+
+.bulb-sign-orange {
+    background-position: center -34px;
+}
+
+.bulb-sign-red {
+    background-position: center -34px;
+}
+
+.bulb-sign-green {
+    background-position: center -68px;
+}
+
+.bulb-sign-black {
+    background-position: center -102px;
+}
+
+.check-out-form fieldset p span[class="textbox"],
+.check-out-form fieldset p span[class="textbox"] input[type="text"],
+.check-out-form fieldset p span[class="textbox textbox-focused"],
+.check-out-form fieldset p span[class="textbox textbox-focused"] input[type="text"] {
+    width: 215px;
+    height: 28px !important;
+}
+
+.searching-area span[class="textbox"],
+.searching-area span[class="textbox"] input[type="text"],
+.searching-area span[class="textbox textbox-focused"],
+.searching-area span[class="textbox textbox-focused"] input[type="text"],
+.searching-area span[class="textbox combo"],
+.searching-area span[class="textbox combo textbox-focused"],
+.searching-area span[class="textbox numberbox"],
+.searching-area span[class="textbox numberbox textbox-focused"] {
+    width: 120px;
+    height: 28px !important;
+}
+
+.house-lost-register-form p span[class="textbox textbox-invalid"] not[textarea] ,
+.house-lost-register-form p span[class="textbox textbox-invalid"] input[type="text"] not[textarea],
+.house-lost-register-form p span[class="textbox textbox-invalid textbox-focused"] not[textarea],
+.house-lost-register-form p span[class="textbox textbox-invalid textbox-focused"] input[type="text"]  {
+    width: 213px;
+    height: 28px !important;
+}
+
+.completed-search-list span[class="textbox"],
+.completed-search-list span[class="textbox"] input[type="text"],
+.completed-search-list span[class="textbox textbox-focused"],
+.completed-search-list span[class="textbox textbox-focused"] input[type="text"] {
+    width: 120px;
+    height: 28px !important;
+}
+
+.house-lost-register-form, .check-out-form {
+    display: block;
+    padding: 10px 20px 16px 20px;
+    border-bottom: 1px solid #D4D4D4;
+    border-left: 1px solid #D4D4D4;
+    border-right: 1px solid #D4D4D4;
+    border-top: 1px solid #D4D4D4;
+}
+
+    .house-lost-register-form p, .check-out-form p {
+        padding-top: 15px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+        .house-lost-register-form p label, .check-out-form p label {
+            width: 80px;
+            display: inline-block;
+            text-align: right;
+        }
+
+        .house-lost-register-form p input[type="text"], .check-out-form p input[type="text"] {
+            height: 30px;
+        }
+
+fieldset {
+    border: 1px dotted #939393;
+    padding: 20px 20px 30px 40px;
+    margin-bottom: 20px;
+    background-color: #f7f7f7;
+}
+
+legend {
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+.terminate-reason-wrap {
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+    .terminate-reason-wrap label {
+        vertical-align: top;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+.terminate-reason {
+    border: 1px solid #c3c2c2;
+    outline: none;
+    width: 510px;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+}
+
+.allmap {
+    height: 300px;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+#suggestId {
+    margin-bottom: 10px;
+    width: 219px !important;
+    border: 1px solid !important;
+}
+
+#BaiduMap {
+    border: 1px solid !important;
+}
+
+.datagrid-btable td div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+}
+
+.searching-new {
+    position: relative;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: #898989;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 20px;
+    border: 1px solid #D4D4D4;
+}
+.house-info-list label {
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+    height: 20px;
+    display: block;
+    text-align:left;
+}
+
+.l-btn-icon-left .l-btn-text {
+    margin: 0 11px 0 11px !important;
+}
+
+#btnMapSearch {
+      background-color: #32b16c; 
+}
+
+.two-columns-wrap .tabs li a.tabs-inner {
+    border-radius: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-top: 1px solid #eee;
+    margin-left: -1px;
+}
+.two-columns-wrap .tabs li.tabs-selected a.tabs-inner {
+    border-top: 1px solid #1b72ad;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+.uploadAttachment {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 30px;
+}
+.uploadAttachment a{
+    /*display: block;*/
+    margin:0 5px 0px 5px;
+}
+.uploadAttachment a img {
+    vertical-align: middle;
+}
+
+.operate-area-new{
+    padding: 10px 20px;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #dcdcdc;
+}
+.Wdate {
+    padding-left: 7px;
+}
+
+/*���ڹ�����ʽ�����ĵ���*/
+    /*������������ɫ���޸�*/
+    .datagrid-btable .datagrid-cell a:-webkit-any-link {
+        color: #1761a4  !important ;
+    }
+    .datagrid-btable .datagrid-cell a:-webkit-any-link:visited {
+        color: #1761a4 ;
+    }
+    .datagrid-btable .datagrid-cell a:-webkit-any-link:hover {
+        color: #1761a4 ;
+    }
+    .datagrid-btable .datagrid-cell a:-webkit-any-link:active {
+        color: -webkit-activelink !important;
+        color: -ms-activelink !important;
+    }
+    .datagrid-btable .datagrid-cell a.easyui-modifyoperate {
+        color: #fff !important;
+    }
+    .datagrid-btable .datagrid-cell a.easyui-oldoperate {
+        color: #fff !important;
+    }
+     .datagrid-btable .datagrid-cell a.easyui-modifyoperate:active {
+        color: #fff !important;
+    }
+      .datagrid-btable .datagrid-cell a.easyui-oldoperate:active {
+        color: #fff !important;
+    }
+
+.easyui-normalyellowbutton, .easyui-normalbluebutton, .easyui-normalgreenbutton {
+    padding: 0px 18px;
+}
+.center-main {
+    min-width: 1366px;
+    max-width: 1920px;
+    overflow-x: auto;
+}
+.tabs-panels {
+  border-color: transparent;
+  overflow-x: auto;
+ 
+}
+.panel-body {
+  overflow: auto;
+  padding: 0;
+}
+.datagrid .panel-body {
+    overflow: hidden;
+    position: relative;
+}
+.datagrid .datagrid-pager {
+    width: 100%;
+    position:absolute;
+    bottom: 0px;
+}
+
+.two-columns-inner .tabs-container {
+    overflow: hidden !important; 
+}
+
+#RepairPlan .input-column-wrap {
+    /*width: 668px !important;*/
+    width: 721px !important;
+    /*width: 670px !important;*/
+} 
+#IsChangeRepairPlan .input-column-wrap{
+  width: 722px !important;
+}
+#RepairPlan .panel-body {
+    /*width: 666px !important;*/
+    width: 719px !important;
+}
+ #IsChangeRepairPlan .panel-body{
+  width: 720px !important;
+}
+#RepairPlan .datagrid-view2{
+  left:31px;
+}
+#RepairPlan .datagrid-htable,#IsChangeRepairPlan .datagrid-htable {
+  width: 636px; 
+}
+#RepairPlan .datagrid-htable .datagrid-header-rownumber{
+  height: 36px;
+  border-right: 1px dotted #ccc;
+}
+#RepairPlan .datagrid-view, #IsChangeRepairPlan .datagrid-view {
+  width:800px !important;
+}
+#RepairPlan .datagrid-view1, #RepairPlan .datagrid-view2 {
+    float: none;
+    position: absolute;
+}
+#IsChangeRepairPlan .datagrid-view1, #IsChangeRepairPlan .datagrid-view2 {
+    float: none;
+    position: absolute;
+}
+#RepairPlan .datagrid-view2 {
+    width: 100% !important;
+    left: 31px;
+}
+#IsChangeRepairPlan {
+    padding: 0 10px;
+}
+#IsChangeRepairPlan .datagrid-view2 {
+    width: 100% !important;
+    left: 31px;
+}
+#IsChangeRepairPlan .datagrid-header-rownumber {
+    height: 36px;
+    border-right: 1px dotted #ccc;
+}
+#IsChangeRepairPlan .panel {
+    overflow-x: auto;
+}
+
+.datagrid-body {
+    overflow-x: auto !important;
+}
+
+[id*="datagrid-row-r1-2-"] div.datagrid-cell {
+    text-align: center !important;
+}
+.datagrid-header-row div.datagrid-cell {
+    text-align: center !important;
+}
+
+/*����������Ϣ����*/
+#myfieldset, #myfieldset1 {
+    padding: 10px;
+}
+    #myfieldset p {
+        display: inline-block;
+        padding: 4px 12px;
+        line-height: 20px;
+        border: 1px solid #32b16c;
+        border-radius: 4px;
+        background-color: #32b16c;
+    }
+.file {
+    position: relative;
+    display: inline-block;
+    background: #32b16c;
+    border: 1px solid #32b16c;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+
+    .file input {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .file:hover {
+        text-decoration: underline;
+    }
+
+.title {
+    position: relative;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: #898989;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 20px;
+    border: 1px solid #D4D4D4;
+}
+
+.container-body {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.right-text {
+    display: inline-block;
+    width: 230px;
+    height: 30px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #32b16c;
+    position: absolute;
+    top: 37px;
+    left: 92px;
+    line-height: 30px;
+    padding:0px 5px;
+    font-family: "Microsoft Yahei";
+}
+
+.right-textimp {
+    display: inline-block;
+    width: 230px;
+    height: 28px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #32b16c;
+    position: absolute;
+    line-height: 28px;
+    padding:0px 5px;
+    margin:0px 0px !important;
+    font-family: "Microsoft Yahei";
+}
+
+/*���ֱ���th���־�������*/
+
+.datagrid-sort .datagrid-sort-icon {
+    padding: 0px !important;
+}
+
+/*去掉某些标签的边框圆角*/
+.ui-jqgrid-bdiv{
+    border-radius: none;
+    -webkit-border-radius:none;
+}
+
+/*弹出窗口的文字和图标样式*/
+.window .window-body{
+    /* margin-top: 5px;*/
+    line-height: 20px;
+    text-align: center;
+    /*overflow:visible;*/
+    /*min-height:60px !important;*/
+     /*padding: 0px 65px;*/
+}
+.window .window-header{
+    padding:3px 0px;
+}
+.window .window-header .panel-tool{
+    margin-top: -9px;
+}
+.window .window-header .panel-title{
+    padding-right:12px; 
+}
+.messager-icon {
+    /*position:absolute;
+    top: 50px;
+    left: 30px;*/
+        float: left;
+    margin-left: 30px;
+    margin-top: 16px;
+}
+.window .window-body div:nth-child(2){
+   line-height: normal !important;
+   padding-top: 16px;
+   padding-left: 74px;
+   padding-right: 40px;
+   text-align: inherit;
+}
+.easyui-btn {
+    padding: 0 5px;
+    height: 22px;
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    background-color: #d15b47;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    width: 100px;
+}
+
+.easyui-btn1 {
+    padding: 0 5px;
+    height: 22px;
+    display: inline-block;
+    color: #fff;
+    background-color: #6fb3e0;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 100px;
+}
+ .input_check {
+        width: 200px;
+        height: 30px;
+        border: 1px solid #D4D4D4;
+    }
+
+ 
+/*2016-12-20新增*/
+.table-slash{
+    background: url(../images/slash.png);
+    background-size: 100% 100%;
+}
+.slash-title-top{
+    position: absolute;
+    top:2px;
+    right: 50px;
+}
+.slash-title-bottom{
+    position: absolute;
+    bottom:2px;
+    left: 50px;
+}
+.table-direction{
+    font-size: 11pt;
+    padding-top: 5px;
+}
+.examine-sign-wrap{
+    overflow: hidden;
+    padding-top: 5px;
+    font-weight: bold;
+}
+/*960*/
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+    .input_check{width: 224px;   height: 30px;}
+}
+
+/*960*/
+@media only screen and (min-width: 960px) and (max-width: 1200px) {
+    .input_check{width: 150px; height: 30px;}
+     
+}

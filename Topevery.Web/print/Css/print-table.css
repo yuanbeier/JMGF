@@ -1,0 +1,45 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+}
+.printHead {
+    text-align: center;
+
+}
+.printtable {
+    border: solid 2px black;
+    width: 21cm;
+    margin: 50px auto;
+    border-collapse:collapse;
+    border-spacing:0;
+    
+}
+.printtable th {
+     padding:8px 0; 
+     font-size:22pt; font-weight:bold;  border:1px solid #000;height:40px;
+     
+}
+.printtable td {
+    border: solid 1px black;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left:3px;
+    text-align: center;
+    min-width: 80px;
+    vertical-align: bottom;
+}
+.lefttd {
+    min-width: 40px !important;
+    width: 40px !important;
+    height: 2.1cm;
+    text-align: center;
+}
+.leftspan {
+    float: left;
+}
+.rightspan {
+    float: right;
+    letter-spacing:2em;
+}
+
+

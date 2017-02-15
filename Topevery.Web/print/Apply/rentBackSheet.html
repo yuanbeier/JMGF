@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+    <title>退还房屋租金审批表</title>
+    <script src="../../Libs/jquery-easyui-1.4.5/jquery.min.js"></script>
+    <script src="../../Js/base.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/printSheet.css">
+    <script type="text/javascript" src="js/LodopFuncs.js"></script>
+    <script type="text/javascript">
+        function loadData() {
+            var src = window.location.href;
+            var id = src.split('?id=');
+            $.ajax({
+                type: 'POST',
+                url: topevery.virtualDirName + "/api/services/app/RefundRentApplyR/GetBasicInformationInfoAsync",
+                data: JSON.stringify({ id: id[1] }),
+                cache: false,
+                contentType: "application/json",
+                Type: "JSON",
+                success: function(row) {
+                    if (row.success) {
+                        var data = row.result;
+                        for (var j in data) {
+                            $("#" + UpperFirstLetter(j) + "").html(data[j]);
+                        }
+                        if (data.contractNo != null) {
+                            $("#JiangRoom").html(data.contractNo.charAt(0));
+                            $("#ContractNo").html(data.contractNo.split(data.contractNo.charAt(0)));
+                        }
+                    }
+                }
+            });
+        };
+        ///首字母转大写
+        function UpperFirstLetter(str) {
+            return str.replace(/\b\w+\b/g, function(word) {
+                return word.substring(0, 1).toUpperCase() + word.substring(1);
+            });
+        }
+        $(function() {
+            loadData();
+        });
+    </script>
+    <style>
+        .print-sheet-head{
+            text-align: center;
+            font-size: 20pt;
+            padding-bottom: 15pt;
+        }
+        .print-sheet-subhead{
+            font-size: 12pt;
+            padding-bottom: 5pt;
+        }
+        .print-sheet tr th p{
+            width: 50pt;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:printPreview()">打印预览</a>
+<a href="javascript:directPrint()">直接打印</a>
+<a href="javascript:selectPrinter()">选择打印机</a>
+    <form class="print-sheet-wrap" id="print-sheet">
+        <div class="print-sheet-head">退还房屋租金审批表</div>
+        <div class="print-sheet-subhead">单位名称:江门市市区公房管理中心</div>
+        <table class="print-sheet">
+            <tr>
+                <th rowspan="3" width="40">房<br />屋<br />情<br />况</th>
+                <th colspan="2"><p>合同编号</p></th>
+                <td colspan="4"><div class="position-absolute-left">(<label id="JiangRoom"></label>)</div><div class="position-absolute-right"><label id="ContractNo"></label>号</div></td>
+                <th colspan="2"><p>产权</p></th>
+                <td colspan="4"><label id="PropertyName"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2"><p>房屋地址</p></th>
+                <td colspan="4"><label id="HouseDoorplate"></label></td>
+                <th colspan="2"><p>用途</p></th>
+                <td colspan="4"><label id="UsePropertyName"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2"><p>承租人姓名</p></th>
+                <td colspan="4"><label id="Name"></label></td>
+                <th colspan="2"><p>应收月租金</p></th>
+                <td colspan="4"><label id="CollectMonthMoneyCapital"></label></td>
+            </tr>
+            <tr>
+                <th rowspan="2">退还</br>租金</br>情况</th>
+                <th colspan="2"><p style="width: 90pt;">多收租金的时间</p></th>
+                <td colspan="10" class="text-align-right"><label id="MoreRentTimeCapital"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2"><p style="width: 70pt;">退还租金金额</p></th>
+                <td colspan="10"><label id="RefundRentMoneyCapital"></label></td>
+            </tr>
+            <tr>
+                <th>退<br/>还<br/>租<br/>金<br/>原<br/>因</th>
+
+                <td colspan="12" class="vertical-align-bottom">
+                    <label id="RefundReason"></label>
+                    <div class="position-absolute-left">经办人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th>单<br/>位<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">审核人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th>房<br/>管<br/>科<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">审核人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th>财<br/>务<br/>科<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">审核人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script language="javascript" type="text/javascript">
+        var LODOP; //声明为全局变量
+        function directPrint() {
+            CreateFormPage();
+            LODOP.PRINT();
+        }
+        function selectPrinter() {
+            CreateFormPage();
+            LODOP.PRINTA();
+        }
+
+        function printPreview(){
+            LODOP=getLodop();
+
+
+		LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT","Width:80%");
+
+
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_全页");
+            LODOP.ADD_PRINT_HTM("3%","5%","90%","100%",document.documentElement.innerHTML);
+            LODOP.PREVIEW();
+
+        }
+        function CreateFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印页面部分内容");
+            LODOP.ADD_PRINT_HTM(88,200,350,600,document.getElementById("print-sheet").innerHTML);
+        }
+    </script>
+</body>
+</html>

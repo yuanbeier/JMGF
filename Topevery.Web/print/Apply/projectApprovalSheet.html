@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>江门市市区公房管理中心辖管房屋小修工程立项审批表</title>
+    <script src="../../Libs/jquery-easyui-1.4.5/jquery.min.js"></script>
+    <script src="../../Js/base.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/printSheet.css">
+    <script type="text/javascript" src="js/LodopFuncs.js"></script>
+    <script type="text/javascript">
+        function loadData() {
+            var src = window.location.href;
+            var id = src.split('?id=');
+            $.ajax({
+                type: 'POST',
+                url: topevery.virtualDirName +  "/api/services/app/RepairTaskR/GetHouseTenantHandleInfoAsync",
+                data: JSON.stringify({ id: id[1] }),
+                cache: false,
+                contentType: "application/json",
+                Type: "JSON",
+                success: function(row) {
+                    if (row.success) {
+                        var data = row.result;
+                        for (var j in data) {
+                            $("#" + UpperFirstLetter(j) + "").html(data[j]);
+                        }
+                        if (data != null) {
+                            var list = data.houseUnitInfos;
+                            var html = "";
+                            for (var i = 0; i < list.length; i++) {
+                                html += "  <tr><td colspan=\'16\'>" + list[i].houseUnitId + "</td><td colspan=\'15\'>" + list[i].unitName + "</td><td colspan=\'15\'>" + list[i].name + "</td><td colspan=\'15\'>" + list[i].contactNumber + "</td></tr>";
+                            }
+                            $("#Household").html("" + html + "");
+                        }
+                    }
+                }
+            });
+        };
+        ///首字母转大写
+        function UpperFirstLetter(str) {
+            return str.replace(/\b\w+\b/g, function(word) {
+                return word.substring(0, 1).toUpperCase() + word.substring(1);
+            });
+        }
+        $(function() {
+            loadData();
+        });
+    </script>
+    <style>
+        .print-sheet-head{
+            text-align: center;
+            font-size: 20pt;
+            padding-bottom: 15pt;
+        }
+        .print-sheet-subhead{
+            font-size: 12pt;
+            padding:0 70pt 5pt 0;
+            text-align: right;
+
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:printPreview()">打印预览</a>
+<a href="javascript:directPrint()">直接打印</a>
+<a href="javascript:selectPrinter()">选择打印机</a>
+    <form class="print-sheet-wrap" id="print-sheet">
+        <div class="print-sheet-head">江门市市区公房管理中心<br>辖管房屋小修工程立项审批表</div>
+        <div class="print-sheet-subhead">申请单号：<label id="TaskListNo"></label></div>
+        <table class="print-sheet">
+            <tr>
+                <th rowspan="2" colspan="1" class="width-40">房屋信息</th>
+                <th colspan="10">房屋坐落</th>
+                <td colspan="10"><label id="HouseDoorplate"></label></td>
+                <th colspan="10">建筑结构</th>
+                <td colspan="10"><label id="BuildStructureName"></label></td>
+                <th colspan="10">总层数</th>
+                <td colspan="10"><label id="TotalFloors"></label></td>
+            </tr>
+            <tr>
+                <th colspan="10">产权性质</th>
+                <td colspan="10"><label id="PropertyName"></label></td>
+                <th colspan="10">使用性质</th>
+                <td colspan="10"><label id="UsePropertyName"></label></td>
+                <th colspan="10">面积（m2）</th>
+                <td colspan="10"><label id="MetRentArea"></label></td>
+            </tr>
+            <tr><th colspan="61">分户信息</th></tr>
+            <tr>
+                <th colspan="16">分户编号</th>
+                <th colspan="15">单元名称</th>
+                <th colspan="15">承租人</th>
+                <th colspan="15">联系电话</th>
+            </tr>
+            <tbody id="Household"></tbody>
+            <tr>
+                <th class="height-3">申请修缮<br>项目</th>
+                <td colspan="60" class="vertical-align-bottom">
+                    <div class="position-absolute-left">申请人：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="height-3">房管员勘<br>查意见</th>
+                <td colspan="60" class="vertical-align-bottom">
+                    <div class="position-absolute-left">房管员签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="height-4">勘查及修<br>缮方案</th>
+                <td colspan="60" class="vertical-align-bottom">
+                    <div class="position-absolute-left">经办人：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th>工程预算</th>
+                <td colspan="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</td>
+            </tr>
+            <tr>
+                <th colspan="1" rowspan="2">施工单位</th>
+                <td colspan="12" rowspan="2"></td>
+                <th colspan="12" rowspan="2">计划工期</th>
+                <td colspan="12" rowspan="2"></td>
+                <th colspan="12">计划开工日期</th>
+                <td colspan="12"></td>
+            </tr>
+            <tr>
+                <th colspan="12">计划竣工日期</th>
+                <td colspan="12"></td>
+            </tr>
+            <tr>
+                <th class="height-3">审批意见</th>
+                <td colspan="60" class="vertical-align-bottom">
+                    <div class="position-absolute-left">审批人：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script language="javascript" type="text/javascript">
+        var LODOP; //声明为全局变量
+        function directPrint() {
+            CreateFormPage();
+            LODOP.PRINT();
+        }
+        function selectPrinter() {
+            CreateFormPage();
+            LODOP.PRINTA();
+        }
+
+        function printPreview(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_全页");
+            LODOP.ADD_PRINT_HTM("3%","5%","90%","100%",document.documentElement.innerHTML);
+            LODOP.PREVIEW();
+        }
+        function CreateFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印页面部分内容");
+            LODOP.ADD_PRINT_HTM(88,200,350,600,document.getElementById("print-sheet").innerHTML);
+        }
+    </script>
+</body>
+</html>

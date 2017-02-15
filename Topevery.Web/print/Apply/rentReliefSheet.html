@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>租金减免审批表</title>
+    <script src="../../Libs/jquery-easyui-1.4.5/jquery.min.js"></script>
+    <script src="../../Js/base.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/printSheet.css">
+    <script type="text/javascript" src="js/LodopFuncs.js"></script>
+    <script type="text/javascript">
+        function loadData() {
+            var src = window.location.href;
+            var id = src.split('?id=');
+            $.ajax({
+                type: 'POST',
+                url: topevery.virtualDirName + "/api/services/app/RentRemissionApplyR/GetRentRemissionApplyAsync",
+                data: JSON.stringify({ id: id[1] }),
+                cache: false,
+                contentType: "application/json",
+                Type: "JSON",
+                success: function(row) {
+                    if (row.success) {
+                        var data = row.result;
+                        if (data != null) {
+                            for (var j in data) {
+                                $("#" + UpperFirstLetter(j) + "").html(data[j]);
+                            }
+                            $("#ValidityStartTime").html(topevery.dataTimeFormat(data.validityStartTime));
+                            $("#ValidityEndTime").html(topevery.dataTimeFormat(data.validityEndTime));
+                            if (data.contractNo != null) {
+                                $("#JiangRoom").html(data.contractNo.charAt(0));
+                                $("#ContractNo").html(data.contractNo.split(data.contractNo.charAt(0)));
+                            }
+                        }
+                    }
+                }
+            });
+        };
+        ///首字母转大写
+        function UpperFirstLetter(str) {
+            return str.replace(/\b\w+\b/g, function(word) {
+                return word.substring(0, 1).toUpperCase() + word.substring(1);
+            });
+        }
+        $(function() {
+            loadData();
+        });
+    </script>
+    <style>
+        .print-sheet tr th p {
+            width: 60pt;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:printPreview()">打印预览</a>
+<a href="javascript:directPrint()">直接打印</a>
+<a href="javascript:selectPrinter()">选择打印机</a>
+    <form class="print-sheet-wrap" id="print-sheet">
+        <table class="print-sheet">
+            <caption>租金减免审批表</caption>
+            <tr>
+                <th rowspan="4" width="40">房<br/>屋<br/>情<br/>况</th>
+                <th colspan="2" class="width-50"><p>合同编号</p></th>
+                <td colspan="10" class="text-align-left"><p style="width: 150pt;">&nbsp;&nbsp;江房(<label id="JiangRoom"></label>)字<label id="ContractNo"></label>号</p></td>
+                <td colspan="10" class="text-align-left">
+                    <p style="width: 100px;">江房(&nbsp;&nbsp;)字&nbsp;&nbsp;&nbsp;&nbsp;<label id="ContractNo"></label>号</p>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>承租人</p></th>
+                <td colspan="10"><label id="LesseeName"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>承租房屋地址</p></th>
+                <td colspan="10"><label id="HouseDoorplate"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>租金基数</p></th>
+                <td colspan="10"><p style="float: left"><label id="BaseRentCapital"></label></p></td>
+            </tr>
+            <tr>
+                <th rowspan="6" class="width-40">减<br/>免<br/>租<br/>金<br/>情<br/>况</th>
+                <th colspan="2" class="width-50"><p>持优惠证人</p></th>
+                <td colspan="4"><label id="Holder"></label></td>
+                <th colspan="2" class="width-50"><p>与承租人关系</p></th>
+                <td colspan="4"><label id="Relationship"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" rowspan="2" class="width-50"><p>证件名称</p></th>
+                <td colspan="4"><label id="CertName"></label></td>
+                <th colspan="2" rowspan="2" class="width-50"><p>证件号码</p></th>
+                <td colspan="4"><label id="CertNo"></label></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td colspan="4"></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50 text-align-center"><p>证件有效期限<br/></p></th>
+                <td colspan="10">
+                    <p style="width: 300pt;"><label id="ValidityStartTimeCapital"></label>至<label id="ValidityEndTimeCapital"></label></p></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>租金减免项目</p></th>
+                <td colspan="10" ><label id="ReduceName"></label></td>
+            </tr>
+            <tr>
+                <th colspan="2" class="width-50"><p>减免租金金额</p></th>
+                <td colspan="10"><p style="float: left"><label id="ReduceMoneyCapital"></label>￥:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label id="ReduceMoney"></label>元</p></td>
+            </tr>
+            <tr>
+                <th colspan="3"><p>应收租金</p></th>
+                <td colspan="10"><p style="float: left"><label id="CollectMonthMoneyCapital"></label>￥:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label id="CollectMonthMoney"></label>元</p></td>
+            </tr>
+            <tr>
+                <th class="width-40">初<br/>审<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">房管员签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">初<br/>审<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">房管员签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">审<br/>核<br/>意<br/>见</th>
+                <td colspan="12" class="vertical-align-bottom">
+                    <div class="position-absolute-left">工作站负责人签名：</div>
+                    <div class="position-absolute-right">年&nbsp;&nbsp;月&nbsp;&nbsp;日</div>
+                </td>
+            </tr>
+            <tr>
+                <th class="width-40">备<br/>注</th>
+                <td colspan="12"></td>
+            </tr>
+        </table>
+    </form>
+    <script language="javascript" type="text/javascript">
+        var LODOP; //声明为全局变量
+        function directPrint() {
+            CreateFormPage();
+            LODOP.PRINT();
+        }
+        function selectPrinter() {
+            CreateFormPage();
+            LODOP.PRINTA();
+        }
+
+        function printPreview(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_全页");
+            LODOP.ADD_PRINT_HTM("3%","5%","90%","100%",document.documentElement.innerHTML);
+            LODOP.PREVIEW();
+        }
+        function CreateFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印页面部分内容");
+            LODOP.ADD_PRINT_HTM(88,200,350,600,document.getElementById("print-sheet").innerHTML);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿body
+{
+    margin: 0px;
+    padding: 0px;
+    height:100%;
+	background-color:#e6e6e6;
+}
+
+/*A4打印纸设置*/
+.page {
+    width: 21cm;
+    margin: 0 auto;
+    padding-top: 2.54cm;
+    font-family: 宋体;
+	background-color:#fff;
+	padding-left:1cm;
+	padding-right:1.5cm;
+	
+}
+.index {
+    width: 4cm;
+    float: left;
+    position: fixed;
+    border:solid 1px #c0c0c0;
+    height:100%;
+}
+.index div {
+    margin-top: 10px;
+}
+.index ul {
+    list-style:none;
+}
+.index a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12pt;
+    line-height: 25px;
+}
+.index a:hover {
+    color: coral;
+}
+p {
+    line-height: 28pt;
+    font-size: 14pt;
+    text-indent: 2em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/*分页符*/
+.fenyefu {
+    page-break-after:always;
+}
+/*带下划线输入框*/
+.textbox {
+    border:0px;overflow: hidden;
+    border-bottom: solid 1px black;
+    width: 100px;
+}
+.center {
+    text-align: center;
+}
+.left {
+    text-align: left !important;
+}
+.b {
+    font-weight: bold;
+}
+/*宋体*/
+.songti {
+    font-family: 宋体;
+}
+/*微软雅黑*/
+.weiruanyahei {
+    font-family: 微软雅黑;
+}
+/*初号*/
+.chuhao {
+    font-size: 42pt;
+}
+/*小初*/
+.xiaochu {
+    font-size: 36pt;
+}
+/* 一号*/
+.yihao {
+    font-size: 26pt;
+}
+/* 小一*/
+.xiaoyi {
+    font-size: 24pt;
+}
+/* 二号*/
+.erhao {
+    font-size: 22pt;
+}
+/*小二*/
+.xiaoer {
+    font-size: 18pt;
+}
+/*三号*/
+.sanhao {
+    font-size: 16pt;
+}
+/*小三*/
+.xiaosan {
+    font-size: 15pt;
+}
+/*四号*/
+.sihao {
+    font-size: 14pt;
+}
+/*小四*/
+.xiaosi {
+    font-size: 12pt;
+}
+/*五号*/
+.wuhao {
+    font-size: 10.5pt;
+}
+/*小五*/
+.xiaowu {
+    font-size: 9pt;
+}
+/*合同最后签名*/
+.mark_table {
+    width: 100%;
+    font-size: 14pt;
+    line-height: 28pt;
+}
+
+.appendix_table {
+    width: 100%;
+    font-size: 14pt;
+    line-height: 120%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: solid 2px black;
+}
+.appendix_table th {
+     padding:8px 0; 
+     font-size:12pt; 
+     font-weight:bold;  
+     border:1px solid #000;
+}
+.appendix_table td {
+    border: solid 1px black;
+    font-size: 12pt;
+    line-height: 21.5pt;
+    padding-left:3px;
+    text-align: center;
+    min-width: 12.5%;
+}
